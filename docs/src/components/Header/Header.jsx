@@ -18,7 +18,7 @@ export default function Header() {
                     Docs
                 </button>
                 <button className={styles.navBtn} type='button'>
-                    Chabgelog
+                    Changelog
                 </button>
             </nav>
             <div className={styles.headerIcons}>
