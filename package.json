@@ -1,0 +1,36 @@
+{
+    "name": "disenuio",
+    "version": "1.0.0",
+    "description": "Monorepo for the disenuio React component library and its demo page",
+    "private": true,
+    "workspaces": [
+        "ui",
+        "docs"
+    ],
+    "scripts": {
+        "dev:ui": "npm run dev -w ui",
+        "dev:docs": "npm run dev -w docs",
+        "build": "npm run build:ui && npm run build:docs",
+        "build:ui": "npm run build -w ui",
+        "build:docs": "npm run build -w docs",
+        "lint": "npm run lint --workspaces --if-present",
+        "test": "npm run test --workspaces --if-present",
+        "format:check": "biome check .",
+        "format:write": "biome check --write ."
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/izynegallardo/disenuio.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "MIT",
+    "type": "module",
+    "bugs": {
+        "url": "https://github.com/izynegallardo/disenuio/issues"
+    },
+    "homepage": "https://github.com/izynegallardo/disenuio#readme",
+    "devDependencies": {
+        "@biomejs/biome": "2.5.15"
+    }
+}

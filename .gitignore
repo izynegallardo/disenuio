@@ -1,0 +1,30 @@
+# dependencies
+node_modules/
+**/node_modules/
+
+# build output
+dist/
+build/
+coverage/
+.vite/
+.cache/
+.parcel-cache/
+*.tsbuildinfo
+
+# workspace-specific generated output
+docs/dist/
+docs/.vite/
+ui/dist/
+ui/coverage/
+
+# package artifacts
+*.tgz
+
+# env/local files
+.env
+.env.*
+*.local
+
+# OS/editor noise
+.DS_Store
+.idea/

@@ -1,0 +1,75 @@
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--disenuio-space-sm);
+    min-width: 32px;
+    min-height: 32px;
+    padding: var(--disenuio-space-sm) var(--disenuio-space-md);
+    border: 1px solid transparent;
+    border-radius: var(--disenuio-radius);
+    font-family: var(--disenuio-font-family);
+    font-weight: var(--disenuio-font-weight-medium);
+    line-height: var(--disenuio-line-height);
+    cursor: pointer;
+    transition:
+        background-color var(--disenuio-transition),
+        border-color var(--disenuio-transition),
+        color var(--disenuio-transition);
+}
+
+.button:focus-visible {
+    outline: 2px solid var(--disenuio-color-focus-ring);
+    outline-offset: 2px;
+}
+
+.button:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+/* Sizes: padding and gap are in em, so they scale with the font size. */
+.small {
+    font-size: var(--disenuio-font-size-small);
+}
+
+.medium {
+    font-size: var(--disenuio-font-size-medium);
+}
+
+.large {
+    font-size: var(--disenuio-font-size-large);
+}
+
+/* Variants */
+.solid {
+    background-color: var(--disenuio-color-primary);
+    color: var(--disenuio-color-on-primary);
+}
+
+.solid:hover:not(:disabled) {
+    background-color: var(--disenuio-color-primary-hover);
+}
+
+.solid:active:not(:disabled) {
+    background-color: var(--disenuio-color-primary-active);
+}
+
+.outline {
+    border-color: var(--disenuio-color-primary);
+    background-color: transparent;
+    color: var(--disenuio-color-primary);
+}
+
+.outline:hover:not(:disabled) {
+    background-color: var(--disenuio-color-primary-subtle);
+}
+
+.ghost {
+    background-color: transparent;
+    color: var(--disenuio-color-primary);
+}
+
+.ghost:hover:not(:disabled) {
+    background-color: var(--disenuio-color-primary-subtle);
+}
