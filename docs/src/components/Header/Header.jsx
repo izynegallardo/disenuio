@@ -15,6 +15,9 @@ export default function Header() {
                     Samples
                 </button>
                 <button className={styles.navBtn} type='button'>
+                    Playground
+                </button>
+                <button className={styles.navBtn} type='button'>
                     Docs
                 </button>
                 <button className={styles.navBtn} type='button'>
@@ -23,10 +26,10 @@ export default function Header() {
             </nav>
             <div className={styles.headerIcons}>
                 <a className={styles.headerLink} href='https://github.com/izynegallardo/disenUIo'>
-                    <img className={styles.headerIcon} src={GithubLogo} alt='Github logo'></img>
+                    <img className={styles.headerIcon} src={GithubLogo} alt='github logo'></img>
                 </a>
                 <a className={styles.headerLink} href='https://www.npmjs.com/package/disenUIo'>
-                    <img className={styles.headerIcon} src={NPMLogo} alt='NPM Logo'></img>
+                    <img className={styles.headerIcon} src={NPMLogo} alt='npm logo'></img>
                 </a>
             </div>
         </header>

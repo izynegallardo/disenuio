@@ -1,3 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap");
+
+:root {
+    --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+    --font-mono: "DM Mono", ui-monospace, monospace;
+    --color-canvas: #eaf3fa;
+    --color-ink: #0f1f3d;
+    --color-ink-soft: #4a5a74;
+    --color-line: rgba(15, 31, 61, 0.1);
+    --color-brand: #4f46e5;
+    --color-brand-deep: #3b32c9;
+    --color-navy: #0b2a5b;
+    --color-sky: #0a93c4;
+    --color-success: #0f9d6b;
+    --color-danger: #d6455d;
+}
+
 *,
 *::before,
 *::after {
@@ -6,8 +23,7 @@
 
 html,
 body,
-#root,
-main {
+#root {
     min-height: 100vh;
 }
 
@@ -15,7 +31,7 @@ body {
     margin: 0;
     background-color: #eaf3f9;
     color: #1f2937;
-    font-family: var(--disenuio-font-family);
+    font-family: var(--font-sans);
     font-size: 1rem;
     line-height: 1.5;
 }

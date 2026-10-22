@@ -1,4 +1,5 @@
 import { Button } from 'disenuio'
+import Mascot from '../Mascot/Mascot'
 import styles from './Main.module.css'
 
 const variants = ['solid', 'outline', 'ghost']
@@ -7,10 +8,16 @@ const sizes = ['small', 'medium', 'large']
 export default function Main() {
     return (
         <>
-            <header>
-                <h1 className={styles.pageTitle}>disenUIo</h1>
-                <p className={styles.pageSubtitle}>Component playground</p>
-            </header>
+            <section className={styles.hero}>
+                <h1 className={styles.heroTitle}>
+                    disenUIo
+                    <Mascot />
+                </h1>
+                <p className={styles.heroSubtitle}>
+                    Lightweight, ready-to-use React components with built-in promise handling, fully
+                    customizable to fit your needs.
+                </p>
+            </section>
 
             <section
                 className={styles.section}

@@ -6,7 +6,7 @@ export default function DefaultLayout({ children }) {
     return (
         <div className={styles.default}>
             <Header />
-            <main>{children}</main>
+            <main className={styles.main}>{children}</main>
             <Footer />
         </div>
     )

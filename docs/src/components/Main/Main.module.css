@@ -1,24 +1,74 @@
-.page {
-    width: 100%;
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 2em 1em;
+.hero {
+    padding: 4rem 0 3.5rem;
 }
 
-.pageTitle {
+.heroTitle {
+    display: flex;
+    align-items: center;
     margin: 0 0 0.25em;
-    font-size: 2rem;
-    background: linear-gradient(to right, #0d2040, #1565c0, #00acc1);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
     width: max-content;
+    background: linear-gradient(to right, #0d2040, #1565c0, #00acc1);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: clamp(3.5rem, 11vw, 6.5rem);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.025em;
+    color: transparent;
 }
 
-.pageSubtitle {
+.heroMascot {
+    margin-left: 6px;
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    opacity: 1;
+    pointer-events: none;
+    transform-origin: bottom center;
+    animation: mascot-jump 1.8s ease-in-out infinite;
+}
+
+@keyframes mascot-jump {
+    /* Anticipation: squish before jumping */
+    0%,
+    100% {
+        transform: translateY(0) scale(1, 1);
+    }
+
+    10% {
+        transform: translateY(0) scale(1.15, 0.8);
+    }
+
+    /* Jump up and stretch slightly */
+    25% {
+        transform: translateY(-20px) scale(0.95, 1.1);
+    }
+
+    /* Float briefly in the air */
+    45% {
+        transform: translateY(-20px) scale(1, 1);
+    }
+
+    /* Land with a little squash */
+    60% {
+        transform: translateY(0) scale(1.12, 0.85);
+    }
+
+    /* Recover to normal */
+    72% {
+        transform: translateY(0) scale(0.96, 1.04);
+    }
+
+    82% {
+        transform: translateY(0) scale(1, 1);
+    }
+}
+
+.heroSubtitle {
     margin: 0 0 2em;
-    color: var(--disenuio-color-subtitle);
+    max-width: 30em;
+    color: var(--disenuio-color-secondary);
 }
 
 .section {
@@ -36,7 +86,7 @@
 
 .groupLabel {
     margin: 0 0 0.5em;
-    color: var(--disenuio-color-subtitle);
+    color: var(--disenuio-color-secondary);
     font-size: 0.875rem;
 }
 

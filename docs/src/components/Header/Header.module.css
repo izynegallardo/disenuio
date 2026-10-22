@@ -38,7 +38,9 @@
     border-radius: 8px;
     background-color: transparent;
     padding: 0.375em 0.75em;
-    color: var(--disenuio-color-subtitle);
+    color: var(--disenuio-color-secondary);
+    font-family: var(--disenuio-font-family);
+    font-weight: 500;
     transition: background-color 0.3s ease;
 }
 
@@ -47,7 +49,8 @@
 }
 
 .headerIcons {
-    display: flex;
+    display: inline-flex;
+    align-items: center;
     gap: 0.2em;
 }
 
@@ -55,8 +58,17 @@
     display: flex;
     width: 32px;
     height: 32px;
+    color: var(--disenuio-color-muted);
+    text-decoration: none;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+}
+
+.headerLink:hover {
+    opacity: 1;
 }
 
 .headerIcon {
     padding: 0.375em;
+    /* filt */
 }

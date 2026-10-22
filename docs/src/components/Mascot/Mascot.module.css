@@ -1,0 +1,129 @@
+@keyframes mascot-jump {
+    /* Anticipation: squish before jumping */
+    0%,
+    100% {
+        transform: translateY(0) scale(1, 1);
+    }
+    10% {
+        transform: translateY(0) scale(1.15, 0.8);
+    }
+    /* Jump up and stretch slightly */
+    25% {
+        transform: translateY(-20px) scale(0.95, 1.1);
+    }
+    /* Float briefly in the air */
+    45% {
+        transform: translateY(-20px) scale(1, 1);
+    }
+    /* Land with a little squash */
+    60% {
+        transform: translateY(0) scale(1.12, 0.85);
+    }
+    /* Recover to normal */
+    72% {
+        transform: translateY(0) scale(0.96, 1.04);
+    }
+    82% {
+        transform: translateY(0) scale(1, 1);
+    }
+}
+
+@keyframes mascot-jump-spin {
+    /* 0% starts clean at 0deg */
+    0% {
+        transform: translateY(0) scale(1, 1) rotate(0deg);
+    }
+    /* Anticipation: squish on the ground (no rotation yet) */
+    10% {
+        transform: translateY(0) scale(1.2, 0.75) rotate(0deg);
+    }
+    /* Peak of the jump: launch straight up, spin begins now */
+    25% {
+        transform: translateY(-60px) scale(0.9, 1.15) rotate(0deg);
+    }
+    /* Mid-air float: completes exactly one 360 flip */
+    45% {
+        transform: translateY(-60px) scale(1, 1) rotate(360deg);
+    }
+    /* Landing: hits the ground, holding the 360 position */
+    60% {
+        transform: translateY(0) scale(1.2, 0.75) rotate(360deg);
+    }
+    /* Recovering stability on the ground */
+    72% {
+        transform: translateY(0) scale(0.92, 1.08) rotate(360deg);
+    }
+    82% {
+        transform: translateY(0) scale(1, 1) rotate(360deg);
+    }
+    /* Hold the final orientation right up to the final frame */
+    100% {
+        transform: translateY(0) scale(1, 1) rotate(360deg);
+    }
+}
+
+@keyframes mascot-shadow {
+    0%,
+    100%,
+    10%,
+    60%,
+    72%,
+    82% {
+        transform: scale(1);
+        opacity: 0.25;
+    }
+    25%,
+    45% {
+        transform: scale(0.6);
+        opacity: 0.1;
+    }
+}
+
+.mascotButton {
+    position: relative;
+    display: inline-block;
+    align-self: flex-start;
+    margin-left: 0.25rem;
+    margin-bottom: -0.5rem;
+    width: 6rem;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    padding: 0;
+}
+
+.mascotImage {
+    display: block;
+    width: 100%;
+    user-select: none;
+    object-fit: contain;
+    /* transform-origin: bottom center; */
+    transform-origin: center center;
+    animation: mascot-jump-spin 2.8s ease-in-out infinite;
+}
+
+.mascotShadow {
+    position: absolute;
+    left: 18%;
+    right: 18%;
+    bottom: -0.25rem;
+    height: 0.625rem;
+    border-radius: 50%;
+    background-color: var(--color-ink, #0f1f3d);
+    filter: blur(3px);
+    transform-origin: center center;
+    animation: mascot-shadow 2.8s ease-in-out infinite;
+}
+
+@media (min-width: 768px) {
+    .mascotButton {
+        width: 8rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .mascotImage,
+    .mascotShadow {
+        animation: none;
+    }
+}
