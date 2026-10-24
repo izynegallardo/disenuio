@@ -1,0 +1,56 @@
+.codeContainer {
+    border: 1px solid var(--disenuio-color-line);
+    border-radius: 0.75em;
+    height: 6em;
+    background-color: var(--disenuio-color-navy);
+    color: #e0f2fe;
+    overflow: hidden;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.5em 1em;
+    font-family: var(--disenuio-font-mono);
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.copyButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375em;
+    border-radius: 0.25em;
+    padding: 0.125em 0.375em;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.copyButton:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+}
+
+.codePanel {
+    overflow-x: auto;
+    padding: 1em;
+    margin: 0;
+    font-family: var(--disenuio-font-mono);
+    font-size: 13px;
+    line-height: 1.625;
+}
+
+.icon {
+    width: 0.875em;
+    height: 0.875em;
+    display: block;
+}

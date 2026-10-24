@@ -1,0 +1,16 @@
+.group {
+    margin-bottom: 1.5em;
+}
+
+.groupLabel {
+    margin: 0 0 0.5em;
+    color: var(--disenuio-color-ink-soft);
+    font-size: 0.875rem;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1em;
+}

@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap");
+
 /*
  * Design tokens.
  * Font sizes use rem, spacing uses em (so it scales with the component's own
@@ -16,8 +18,22 @@
     --disenuio-color-muted: #9a9a9a;
     --disenuio-color-border: #d2e1ed;
 
+    --disenuio-color-canvas: #eaf3f9;
+    --disenuio-color-ink: #0f1f3d;
+    --disenuio-color-ink-soft: #4a5a74;
+    --disenuio-color-cover: #eaeae4;
+    --disenuio-color-line: rgba(15, 31, 61, 0.1);
+    --disenuio-color-brand: #4f46e5;
+    --disenuio-color-brand-deep: #3b32c9;
+    --disenuio-color-navy: #0b2a5b;
+    --disenuio-color-sky: #0a93c4;
+    --disenuio-color-success: #0f9d6b;
+    --disenuio-color-danger: #d6455d;
+
     /* Typography */
-    --disenuio-font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --disenuio-font-family:
+        "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --disenuio-font-mono: "DM Mono", ui-monospace, monospace;
     --disenuio-font-size-small: 0.875rem;
     --disenuio-font-size-medium: 1rem;
     --disenuio-font-size-large: 1.125rem;

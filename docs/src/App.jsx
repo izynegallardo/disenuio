@@ -1,12 +1,14 @@
 import BackgroundGrid from './components/BackgroundGrid/BackgroundGrid'
-import Main from './components/Main/Main'
+import Hero from './components/Hero/Hero'
+import Samples from './components/Samples/Samples'
 import DefaultLayout from './layouts/DefaultLayout/DefaultLayout'
 
 export default function App() {
     return (
         <DefaultLayout>
             <BackgroundGrid />
-            <Main />
+            <Hero />
+            <Samples />
         </DefaultLayout>
     )
 }

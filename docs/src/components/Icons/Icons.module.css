@@ -1,0 +1,7 @@
+.baseIcon {
+    width: 1rem;
+    height: 1rem;
+    display: inline-block;
+    vertical-align: middle;
+    vector-effect: non-scaling-stroke;
+}

@@ -5,17 +5,12 @@ export default function Mascot() {
     return (
         <button
             type='button'
-            tabindex='-1'
-            aria-label='Corgi mascot'
+            tabIndex='-1'
+            aria-label='react mascot'
             aria-hidden
             className={styles.mascotButton}
         >
-            <img
-                src={Logo}
-                alt='disenUIo corgi mascot'
-                draggable={false}
-                className={styles.mascotImage}
-            />
+            <img src={Logo} alt='react mascot' draggable={false} className={styles.mascotImage} />
             <span className={styles.mascotShadow} />
         </button>
     )
