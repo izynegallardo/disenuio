@@ -5,6 +5,7 @@
     gap: var(--disenuio-space-sm);
     min-width: 32px;
     min-height: 32px;
+    margin: var(--disenuio-space-sm) 0;
     padding: var(--disenuio-space-sm) var(--disenuio-space-md);
     border: 1px solid transparent;
     border-radius: var(--disenuio-radius);
@@ -28,16 +29,16 @@
     opacity: 0.5;
 }
 
-/* Sizes: padding and gap are in em, so they scale with the font size. */
-.small {
+/* Sizes */
+.sm {
     font-size: var(--disenuio-font-size-small);
 }
 
-.medium {
+.md {
     font-size: var(--disenuio-font-size-medium);
 }
 
-.large {
+.lg {
     font-size: var(--disenuio-font-size-large);
 }
 
@@ -72,4 +73,44 @@
 
 .ghost:hover:not(:disabled) {
     background-color: var(--disenuio-color-primary-subtle);
+}
+
+/* Status */
+.buttonSuccess,
+.buttonError {
+    color: #ffffff;
+    cursor: not-allowed;
+    opacity: 1;
+}
+
+.buttonSuccess {
+    background-color: var(--disenuio-color-success);
+    border-color: var(--disenuio-color-success);
+}
+
+.buttonError {
+    background-color: var(--disenuio-color-danger);
+    border-color: var(--disenuio-color-danger);
+}
+
+.buttonIcon {
+    font-size: 1.1rem;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.buttonSpinner {
+    width: 1em;
+    height: 1em;
+    border: 2px solid currentColor;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: btn-spin 0.7s linear infinite;
+    flex-shrink: 0;
+}
+
+@keyframes btn-spin {
+    to {
+        transform: rotate(360deg);
+    }
 }

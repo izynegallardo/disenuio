@@ -27,8 +27,31 @@
     --disenuio-color-brand-deep: #3b32c9;
     --disenuio-color-navy: #0b2a5b;
     --disenuio-color-sky: #0a93c4;
-    --disenuio-color-success: #0f9d6b;
-    --disenuio-color-danger: #d6455d;
+
+    /* Color: Container */
+    --disenuio-color-container-green: #d1fae5;
+    --disenuio-color-text-green: #065f46;
+
+    --disenuio-color-container-gray: #f3f4f6;
+    --disenuio-color-text-gray: #1f2937;
+
+    --disenuio-color-container-red: #fee2e2;
+    --disenuio-color-text-red: #991b1b;
+
+    --disenuio-color-container-yellow: #fef3c7;
+    --disenuio-color-text-yellow: #92400e;
+
+    --disenuio-color-container-blue: #dbeafe;
+    --disenuio-color-text-blue: #1e40af;
+
+    --disenuio-color-container-indigo: #e0e7ff;
+    --disenuio-color-text-indigo: #3730a3;
+
+    --disenuio-color-container-purple: #ede9fe;
+    --disenuio-color-text-purple: #5b21b6;
+
+    --disenuio-color-container-pink: #fce7f3;
+    --disenuio-color-text-pink: #9d174d;
 
     /* Typography */
     --disenuio-font-family:

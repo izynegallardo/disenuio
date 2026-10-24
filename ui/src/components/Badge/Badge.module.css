@@ -1,0 +1,77 @@
+.badge {
+    display: inline-block;
+    text-align: center;
+    border: none;
+    border-radius: 0;
+    margin: var(--disenuio-space-sm) 0;
+    padding: var(--disenuio-space-sm) var(--disenuio-space-md);
+    min-width: 32px;
+    min-height: 32px;
+    background-color: var(--disenuio-color-navy);
+    color: #e0f2fe;
+    font-weight: var(--disenuio-font-weight-medium);
+    line-height: var(--disenuio-line-height);
+}
+
+/* Sizes */
+.sm {
+    font-size: var(--disenuio-font-size-small);
+}
+
+.md {
+    font-size: var(--disenuio-font-size-medium);
+}
+
+.lg {
+    font-size: var(--disenuio-font-size-large);
+}
+
+/* Variant */
+.square {
+    border-radius: 4px;
+}
+
+.pill {
+    border-radius: 12px;
+}
+
+/* Color */
+.green {
+    background-color: var(--disenuio-color-container-green);
+    color: var(--disenuio-color-text-green);
+}
+
+.gray {
+    background-color: var(--disenuio-color-container-gray);
+    color: var(--disenuio-color-text-gray);
+}
+
+.red {
+    background-color: var(--disenuio-color-container-red);
+    color: var(--disenuio-color-text-red);
+}
+
+.yellow {
+    background-color: var(--disenuio-color-container-yellow);
+    color: var(--disenuio-color-text-yellow);
+}
+
+.blue {
+    background-color: var(--disenuio-color-container-blue);
+    color: var(--disenuio-color-text-blue);
+}
+
+.indigo {
+    background-color: var(--disenuio-color-container-indigo);
+    color: var(--disenuio-color-text-indigo);
+}
+
+.purple {
+    background-color: var(--disenuio-color-container-purple);
+    color: var(--disenuio-color-text-purple);
+}
+
+.pink {
+    background-color: var(--disenuio-color-container-pink);
+    color: var(--disenuio-color-text-pink);
+}

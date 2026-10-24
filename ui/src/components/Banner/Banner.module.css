@@ -1,0 +1,51 @@
+.banner {
+    display: flex;
+    gap: var(--disenuio-space-sm);
+    border-radius: 6px;
+    margin: var(--disenuio-space-sm) 0;
+    padding: var(--disenuio-space-sm) var(--disenuio-space-md);
+    max-width: 49.7778em;
+}
+
+.iconContainer {
+    margin-top: 0.25em;
+    min-width: 20px;
+}
+
+.icon {
+    width: 100%;
+}
+
+.content {
+    flex: 1;
+}
+
+.title {
+    margin: 0;
+    font-weight: 600;
+}
+
+.message {
+    margin: 1em 0 0 0;
+}
+
+/* Variants */
+.info {
+    background-color: var(--disenuio-color-container-blue);
+    color: var(--disenuio-color-text-blue);
+}
+
+.success {
+    background-color: var(--disenuio-color-container-green);
+    color: var(--disenuio-color-text-green);
+}
+
+.warning {
+    background-color: var(--disenuio-color-container-yellow);
+    color: var(--disenuio-color-text-yellow);
+}
+
+.error {
+    background-color: var(--disenuio-color-container-red);
+    color: var(--disenuio-color-text-red);
+}
