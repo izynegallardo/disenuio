@@ -1,4 +1,4 @@
-import { Badge, Banner, Button } from 'disenuio'
+import { Badge, Banner, Button, Card, Testimonial } from 'disenuio'
 
 import React from 'react'
 import Section from '../Section/Section'
@@ -53,11 +53,17 @@ export default function Samples() {
                     </div>
                 </div>
             ))} */}
-            <Badge>Badge</Badge>
+            <Button onClick={() => console.log('Clicked!')}>Button</Button>
+            <Badge shape='pill'>Badge</Badge>
             <Banner
-                title='Congratulations!'
+                title='Banner Component'
                 message='Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur, ipsum similique veniam.'
             />
+            <Card
+                title='Card Component'
+                message='Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.'
+            />
+            <Testimonial />
         </Section>
     )
 }

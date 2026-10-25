@@ -16,7 +16,7 @@
 .titleBtn {
     border: none;
     width: max-content;
-    background: linear-gradient(to right, #0d2040, #1565c0, #00acc1);
+    background: var(--disenuio-gradient-brand);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;

@@ -1,19 +1,21 @@
 .badge {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
     border: none;
     border-radius: 0;
     margin: var(--disenuio-space-sm) 0;
-    padding: var(--disenuio-space-sm) var(--disenuio-space-md);
-    min-width: 32px;
-    min-height: 32px;
-    background-color: var(--disenuio-color-navy);
+    padding: var(--disenuio-space-xs, 4px) var(--disenuio-space-sm);
+    min-width: 24px;
+    min-height: 24px;
+    background-color: var(--disenuio-color-primary);
     color: #e0f2fe;
     font-weight: var(--disenuio-font-weight-medium);
     line-height: var(--disenuio-line-height);
 }
 
-/* Sizes */
+/* Sizes (Mobile Defaults) */
 .sm {
     font-size: var(--disenuio-font-size-small);
 }
@@ -35,7 +37,7 @@
     border-radius: 12px;
 }
 
-/* Color */
+/* Color Themes */
 .green {
     background-color: var(--disenuio-color-container-green);
     color: var(--disenuio-color-text-green);
@@ -74,4 +76,14 @@
 .pink {
     background-color: var(--disenuio-color-container-pink);
     color: var(--disenuio-color-text-pink);
+}
+
+/* Tablet & Desktop Overrides */
+@media (min-width: 768px) {
+    .badge {
+        padding: var(--disenuio-space-sm) var(--disenuio-space-md);
+        min-width: 32px;
+        min-height: 32px;
+        line-height: var(--disenuio-line-height);
+    }
 }

@@ -7,26 +7,35 @@
  */
 :root {
     /* Color */
-    --disenuio-color-primary: #4f46e5;
-    --disenuio-color-primary-hover: #4338ca;
-    --disenuio-color-primary-active: #3730a3;
-    --disenuio-color-primary-subtle: #eef2ff;
+    --disenuio-color-primary: #1565c0;
+    --disenuio-color-primary-hover: #0d47a1;
+    --disenuio-color-primary-active: #0b3a82;
+    --disenuio-color-primary-subtle: #e3effc;
     --disenuio-color-on-primary: #ffffff;
-    --disenuio-color-focus-ring: #6366f1;
+    --disenuio-color-focus-ring: #1e88e5;
 
     --disenuio-color-secondary: #6b6b6b;
     --disenuio-color-muted: #9a9a9a;
     --disenuio-color-border: #d2e1ed;
+    --disenuio-color-card: #f9fafb;
 
     --disenuio-color-canvas: #eaf3f9;
     --disenuio-color-ink: #0f1f3d;
     --disenuio-color-ink-soft: #4a5a74;
     --disenuio-color-cover: #eaeae4;
     --disenuio-color-line: rgba(15, 31, 61, 0.1);
-    --disenuio-color-brand: #4f46e5;
-    --disenuio-color-brand-deep: #3b32c9;
-    --disenuio-color-navy: #0b2a5b;
-    --disenuio-color-sky: #0a93c4;
+    --disenuio-color-brand: #1565c0;
+    --disenuio-color-brand-deep: #0d47a1;
+    --disenuio-color-navy: #0d2040;
+    --disenuio-color-sky: #00acc1;
+    --disenuio-color-success: var(--disenuio-color-text-green);
+    --disenuio-color-danger: var(--disenuio-color-text-red);
+    --disenuio-gradient-brand: linear-gradient(
+        to right,
+        var(--disenuio-color-navy),
+        var(--disenuio-color-brand),
+        var(--disenuio-color-sky)
+    );
 
     /* Color: Container */
     --disenuio-color-container-green: #d1fae5;
@@ -41,8 +50,8 @@
     --disenuio-color-container-yellow: #fef3c7;
     --disenuio-color-text-yellow: #92400e;
 
-    --disenuio-color-container-blue: #dbeafe;
-    --disenuio-color-text-blue: #1e40af;
+    --disenuio-color-container-blue: #e3effc;
+    --disenuio-color-text-blue: #0d47a1;
 
     --disenuio-color-container-indigo: #e0e7ff;
     --disenuio-color-text-indigo: #3730a3;
@@ -52,6 +61,8 @@
 
     --disenuio-color-container-pink: #fce7f3;
     --disenuio-color-text-pink: #9d174d;
+
+    --disenuio-color-icon-container: var(--disenuio-color-brand);
 
     /* Typography */
     --disenuio-font-family:

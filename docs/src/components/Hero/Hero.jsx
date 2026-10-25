@@ -1,4 +1,4 @@
-import CodeBlock from '../CodeBlock/CodeBlock'
+import { CodeBlock } from 'disenuio'
 import Mascot from '../Mascot/Mascot'
 import styles from './Hero.module.css'
 

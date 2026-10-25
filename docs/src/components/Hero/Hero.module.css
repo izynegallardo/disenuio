@@ -14,7 +14,7 @@
     gap: calc(0.25rem * 2);
     margin: 0;
     width: max-content;
-    background: linear-gradient(to right, #0d2040, #1565c0, #00acc1);
+    background: var(--disenuio-gradient-brand);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

@@ -1,0 +1,92 @@
+.testimonial {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: 140px auto 2em;
+    padding: 120px 24px 32px;
+    max-width: 400px;
+    background-color: var(--disenuio-color-primary);
+    border-radius: 8px;
+}
+
+.modelContainer {
+    position: absolute;
+    top: -90px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+.model {
+    border-radius: 12px;
+    box-shadow:
+        0px 10px 15px -3px rgba(0, 0, 0, 0.1),
+        0px 4px 6px -2px rgba(0, 0, 0, 0.05);
+    width: 344px;
+    height: auto;
+    aspect-ratio: 344 / 206;
+    object-fit: cover;
+    object-position: center 18%;
+}
+
+.quotes {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    padding: 0;
+}
+
+.quotesIcon {
+    width: 48px;
+    opacity: 0.3;
+}
+
+.quotesMessage {
+    margin: 0.5em 0 0;
+    color: var(--disenuio-color-on-primary);
+    font-size: 1.1rem;
+    line-height: 1.5;
+    font-weight: var(--disenuio-font-weight-medium);
+    word-break: break-word;
+}
+
+.name {
+    margin: 1.5em 0 0;
+    color: var(--disenuio-color-on-primary);
+    font-weight: 700;
+    word-break: break-word;
+}
+
+.companyPosition {
+    margin: 0;
+    color: var(--disenuio-color-on-primary);
+    font-weight: var(--disenuio-font-weight-medium);
+    word-break: break-word;
+    opacity: 0.8;
+}
+
+@media (min-width: 768px) {
+    .testimonial {
+        flex-direction: row;
+        max-width: 960px;
+        min-height: 320px;
+        margin: 4em auto;
+        padding: 40px 30px 40px 370px;
+    }
+
+    .modelContainer {
+        top: 50%;
+        left: 38px;
+        transform: translateY(-50%);
+    }
+
+    .model {
+        width: 300px;
+        height: 360px;
+    }
+
+    .quotes {
+        justify-content: center;
+        margin-top: 0;
+    }
+}

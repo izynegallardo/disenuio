@@ -1,4 +1,4 @@
-.codeContainer {
+.codeBlock {
     border: 1px solid var(--disenuio-color-line);
     border-radius: 0.75em;
     height: 6em;
@@ -37,7 +37,7 @@
 
 .copyButton:hover {
     background-color: rgba(255, 255, 255, 0.1);
-    color: #ffffff;
+    color: var(--disenuio-color-on-primary);
 }
 
 .codePanel {

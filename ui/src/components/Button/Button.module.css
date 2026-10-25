@@ -78,7 +78,7 @@
 /* Status */
 .buttonSuccess,
 .buttonError {
-    color: #ffffff;
+    color: var(--disenuio-color-on-primary);
     cursor: not-allowed;
     opacity: 1;
 }

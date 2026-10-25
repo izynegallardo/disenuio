@@ -3,7 +3,7 @@ import styles from './Badge.module.css'
 
 export default function Badge({
     size = 'md', // sm, md, lg
-    variant = 'square', // square || pill
+    shape = 'square', // square || pill
     color, // gray || red || yellow || green || blue || indigo || purple || pink
     className,
     children,
@@ -12,7 +12,7 @@ export default function Badge({
     const badgeClass = classNames(
         styles.badge,
         styles[size],
-        styles[variant],
+        styles[shape],
         styles[color],
         className,
     )
