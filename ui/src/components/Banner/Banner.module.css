@@ -7,8 +7,6 @@
     margin: var(--disenuio-space-sm) 0;
     padding: var(--disenuio-space-md);
     max-width: 100%;
-    font-size: var(--disenuio-font-size-medium);
-    box-sizing: border-box;
 }
 
 .iconContainer {
@@ -34,16 +32,14 @@
 
 .title {
     margin: 0;
-    font-size: 16px;
+    font-size: 1em;
     font-weight: 600;
-    line-height: 1.4;
     word-break: break-word;
 }
 
 .message {
     margin: var(--disenuio-space-xs, 4px) 0 0 0;
-    font-size: 14px;
-    line-height: 1.5;
+    font-size: 0.875rem;
     word-break: break-word;
 }
 
@@ -72,16 +68,15 @@
 @media (min-width: 768px) {
     .banner {
         max-width: 896px;
-        font-size: 16px;
         padding: var(--disenuio-space-sm) var(--disenuio-space-md);
     }
 
     .title {
-        font-size: 16px;
+        font-size: 1rem;
     }
 
     .message {
-        font-size: 16px;
+        font-size: 1rem;
         margin-top: 0.5em;
     }
 

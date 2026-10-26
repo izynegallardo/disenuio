@@ -12,7 +12,7 @@ export default function Button({
     const buttonClass = classNames(styles.button, styles[variant], styles[size], className)
 
     return (
-        <button type={type} className={buttonClass} {...rest}>
+        <button type={type} className={buttonClass} {...rest} data-disenuio=''>
             {children}
         </button>
     )

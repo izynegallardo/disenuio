@@ -14,7 +14,7 @@ export default function Testimonial({
     const testimonialClass = classNames(styles.testimonial, className)
 
     return (
-        <div {...rest} className={testimonialClass}>
+        <div {...rest} className={testimonialClass} data-disenuio=''>
             <div className={styles.modelContainer}>
                 {children ? (
                     children

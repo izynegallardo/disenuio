@@ -2,10 +2,11 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    margin: 140px auto 2em;
-    padding: 120px 24px 32px;
+    margin: 6.5em auto 1em;
+    padding: 7.5em 1.5em 2em;
     max-width: 400px;
-    background-color: var(--disenuio-color-primary);
+    background-color: var(--disenuio-color-testimonial-background);
+    color: var(--disenuio-color-testimonial-color);
     border-radius: 8px;
 }
 
@@ -38,31 +39,28 @@
 
 .quotesIcon {
     width: 48px;
-    opacity: 0.3;
+    opacity: 0.1;
+}
+
+.quotesMessage,
+.name,
+.companyPosition {
+    word-break: break-word;
 }
 
 .quotesMessage {
     margin: 0.5em 0 0;
-    color: var(--disenuio-color-on-primary);
     font-size: 1.1rem;
-    line-height: 1.5;
-    font-weight: var(--disenuio-font-weight-medium);
-    word-break: break-word;
 }
 
 .name {
     margin: 1.5em 0 0;
-    color: var(--disenuio-color-on-primary);
     font-weight: 700;
-    word-break: break-word;
 }
 
 .companyPosition {
     margin: 0;
-    color: var(--disenuio-color-on-primary);
-    font-weight: var(--disenuio-font-weight-medium);
-    word-break: break-word;
-    opacity: 0.8;
+    opacity: 0.88;
 }
 
 @media (min-width: 768px) {
@@ -70,7 +68,7 @@
         flex-direction: row;
         max-width: 960px;
         min-height: 320px;
-        margin: 4em auto;
+        margin: 2em auto;
         padding: 40px 30px 40px 370px;
     }
 

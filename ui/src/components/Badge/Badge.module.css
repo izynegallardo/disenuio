@@ -11,8 +11,6 @@
     min-height: 24px;
     background-color: var(--disenuio-color-primary);
     color: #e0f2fe;
-    font-weight: var(--disenuio-font-weight-medium);
-    line-height: var(--disenuio-line-height);
 }
 
 /* Sizes (Mobile Defaults) */
@@ -84,6 +82,5 @@
         padding: var(--disenuio-space-sm) var(--disenuio-space-md);
         min-width: 32px;
         min-height: 32px;
-        line-height: var(--disenuio-line-height);
     }
 }

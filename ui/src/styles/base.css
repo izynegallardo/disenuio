@@ -1,0 +1,28 @@
+/*
+ * Base defaults for disenuio components.
+ *
+ * Scoped to elements inside a component root (marked with data-disenuio), so
+ * nothing leaks into the app that consumes the library. :where() keeps the
+ * specificity at 0, so any component or consumer class overrides these.
+ */
+
+/* The root sets the defaults once. rem keeps it in step with the user's browser font size. */
+:where([data-disenuio]) {
+    font-family: var(--disenuio-font-family);
+    font-size: var(--disenuio-font-size-medium);
+    font-weight: var(--disenuio-font-weight-medium);
+    color: var(--disenuio-color-ink);
+    line-height: var(--disenuio-line-height);
+}
+
+/* Descendants (h4, p, button, pre, code...) inherit instead of using browser defaults. */
+:where([data-disenuio] *) {
+    font: inherit;
+    word-break: break-word;
+}
+
+:where([data-disenuio], [data-disenuio] *),
+:where([data-disenuio], [data-disenuio] *)::before,
+:where([data-disenuio], [data-disenuio] *)::after {
+    box-sizing: border-box;
+}

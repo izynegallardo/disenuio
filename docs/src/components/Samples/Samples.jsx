@@ -1,4 +1,4 @@
-import { Badge, Banner, Button, Card, Testimonial } from 'disenuio'
+import { Badge, Banner, Button, Card, Testimonial, ToolTip } from 'disenuio'
 
 import React from 'react'
 import Section from '../Section/Section'
@@ -64,6 +64,7 @@ export default function Samples() {
                 message='Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.'
             />
             <Testimonial />
+            <ToolTip />
         </Section>
     )
 }

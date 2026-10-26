@@ -1,7 +1,41 @@
 .baseIcon {
+    display: inline-block;
+    flex-shrink: 0;
     width: 1rem;
     height: 1rem;
-    display: inline-block;
     vertical-align: middle;
     vector-effect: non-scaling-stroke;
+}
+
+/* Status icons: a colored shape with a white glyph on top */
+.statusSuccess {
+    fill: var(--disenuio-color-icon-success);
+}
+
+.statusError {
+    fill: var(--disenuio-color-icon-error);
+}
+
+.statusInfo {
+    fill: var(--disenuio-color-icon-info);
+}
+
+/* The warning triangle is stroked in its own color to round the corners */
+.statusWarning {
+    fill: var(--disenuio-color-icon-warning);
+    stroke: var(--disenuio-color-icon-warning);
+    stroke-width: 3;
+    stroke-linejoin: round;
+}
+
+.statusGlyph {
+    fill: none;
+    stroke: var(--disenuio-color-on-primary);
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.statusDot {
+    fill: var(--disenuio-color-on-primary);
 }

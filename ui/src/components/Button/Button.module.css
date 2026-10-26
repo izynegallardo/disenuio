@@ -9,9 +9,6 @@
     padding: var(--disenuio-space-sm) var(--disenuio-space-md);
     border: 1px solid transparent;
     border-radius: var(--disenuio-radius);
-    font-family: var(--disenuio-font-family);
-    font-weight: var(--disenuio-font-weight-medium);
-    line-height: var(--disenuio-line-height);
     cursor: pointer;
     transition:
         background-color var(--disenuio-transition),

@@ -28,8 +28,6 @@
     background: transparent;
     border: none;
     color: inherit;
-    font-family: inherit;
-    font-size: inherit;
     transition:
         background-color 0.2s ease,
         color 0.2s ease;
@@ -50,7 +48,7 @@
 }
 
 .icon {
-    width: 0.875em;
-    height: 0.875em;
+    width: 1rem;
+    height: 1rem;
     display: block;
 }

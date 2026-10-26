@@ -18,7 +18,7 @@ export default function Badge({
     )
 
     return (
-        <span {...rest} className={badgeClass}>
+        <span {...rest} className={badgeClass} data-disenuio=''>
             {children}
         </span>
     )

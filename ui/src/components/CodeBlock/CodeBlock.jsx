@@ -15,7 +15,7 @@ export default function CodeBlock({ label, code, className, ...rest }) {
     const codeBlockClass = classNames(styles.codeBlock, className)
 
     return (
-        <div {...rest} className={codeBlockClass}>
+        <div {...rest} className={codeBlockClass} data-disenuio=''>
             <div className={styles.header}>
                 <span>{label ?? 'terminal'}</span>
                 <button className={styles.copyButton} type='button' onClick={copy}>
