@@ -22,7 +22,7 @@ import { Button } from 'disenuio'
 
 export default function App() {
     return (
-        <Button variant='outline' size='large' onClick={() => console.log('clicked')}>
+        <Button variant='outline' size='lg' onClick={() => console.log('clicked')}>
             Save
         </Button>
     )
@@ -31,9 +31,9 @@ export default function App() {
 
 ## Components
 
-| Component | Props                                                                                                         |
-| --------- | ------------------------------------------------------------------------------------------------------------- |
-| `Button`  | `variant`: `solid` / `outline` / `ghost`, `size`: `small` / `medium` / `large`, plus all native button props |
+| Component | Props                                                                                              |
+| --------- | -------------------------------------------------------------------------------------------------- |
+| `Button`  | `variant`: `solid` / `outline` / `ghost`, `size`: `sm` / `md` / `lg`, plus all native button props |
 
 ## Development
 

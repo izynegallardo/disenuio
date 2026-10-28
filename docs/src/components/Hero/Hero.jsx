@@ -16,7 +16,7 @@ export default function Hero() {
                     Lightweight, ready-to-use React components with built-in promise handling, fully
                     customizable to fit your needs.
                 </p>
-                <CodeBlock label='termnial' code='npm install disenuio' />
+                <CodeBlock label='terminal' code='npm install disenuio' />
             </div>
         </section>
     )

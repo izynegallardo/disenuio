@@ -75,9 +75,20 @@
     --disenuio-color-testimonial-color: var(--disenuio-color-ink-soft);
 
     /* Tooltip */
+    --disenuio-color-tooltip-background: var(--disenuio-color-card);
     --disenuio-color-tooltip-icon: var(--disenuio-color-primary);
     --disenuio-color-tooltip-title: #111827;
     --disenuio-color-tooltip-message: #6b7280;
+
+    /* Toast */
+    --disenuio-toast-max-width: 356px;
+    --disenuio-color-toast-background: var(--disenuio-color-card);
+    --disenuio-color-toast-icon: var(--disenuio-color-primary);
+    --disenuio-color-toast-title: #111827;
+    --disenuio-color-toast-message: #6b7280;
+    --disenuio-color-toast-closeButton: var(--disenuio-color-primary);
+    --disenuio-color-toast-opacity-visible: 1;
+    --disenuio-color-toast-opacity-invisible: 0;
 
     /* Typography */
     --disenuio-font-family:

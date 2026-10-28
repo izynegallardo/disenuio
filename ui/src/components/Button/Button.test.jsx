@@ -29,14 +29,14 @@ describe('Button', () => {
 
         const button = screen.getByRole('button')
 
-        expect(button).toHaveClass(styles.button, styles.solid, styles.medium)
+        expect(button).toHaveClass(styles.button, styles.solid, styles.md)
         expect(button).not.toHaveClass(styles.outline, styles.ghost)
     })
 
     it.each([
-        ['solid', 'small'],
-        ['outline', 'medium'],
-        ['ghost', 'large'],
+        ['solid', 'sm'],
+        ['outline', 'md'],
+        ['ghost', 'lg'],
     ])('applies the %s variant and the %s size', (variant, size) => {
         render(
             <Button variant={variant} size={size}>

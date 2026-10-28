@@ -39,3 +39,20 @@
 .statusDot {
     fill: var(--disenuio-color-on-primary);
 }
+
+/* Outlined status icons: the ring and the glyph share one color */
+.statusOutlineSuccess {
+    stroke: var(--disenuio-color-icon-success);
+}
+
+.statusOutlineWarning {
+    stroke: var(--disenuio-color-icon-warning);
+}
+
+.statusOutlineError {
+    stroke: var(--disenuio-color-icon-error);
+}
+
+.statusOutlineInfo {
+    stroke: var(--disenuio-color-icon-info);
+}

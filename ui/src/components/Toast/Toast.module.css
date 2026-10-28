@@ -1,0 +1,265 @@
+.toast {
+    /* A ToastProvider stack overrides these two so toasts flow inside it. */
+    position: var(--disenuio-toast-position, fixed);
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    gap: var(--disenuio-space-sm);
+    margin: var(--disenuio-toast-margin, var(--disenuio-space-sm));
+    border-radius: 8px;
+    padding: var(--disenuio-space-md);
+    max-width: var(--disenuio-toast-max-width);
+    max-height: 234px;
+    background-color: var(--disenuio-color-toast-background);
+    box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+    animation-fill-mode: forwards;
+}
+
+.contentContainer {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    overflow: auto;
+}
+
+.iconContainer {
+    display: flex;
+    padding-top: 2px;
+    color: var(--disenuio-color-tooltip-icon, inherit);
+}
+
+.iconContainer > svg,
+.closeButton > svg {
+    width: 18px;
+    height: 18px;
+    /* fill: currentColor; */
+    /* stroke: currentColor; */
+}
+
+.content {
+    flex: 1;
+    margin: 0 var(--disenuio-space-sm);
+    overflow: auto;
+}
+
+.title {
+    margin: 0;
+    color: var(--disenuio-color-toast-title);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.message {
+    margin: var(--disenuio-space-xs, 4px) 0 0 0;
+    color: var(--disenuio-color-toast-message, inherit);
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.closeButton {
+    --disenuio-button-color: var(--disenuio-color-toast-closeButton, currentColor);
+    --disenuio-button-hover-bg: transparent;
+    --disenuio-button-padding: 0;
+    --disenuio-button-min-width: 0;
+    --disenuio-button-min-height: 0;
+
+    flex-shrink: 0;
+    align-items: start;
+    width: 20px;
+    height: 20px;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+}
+
+.closeButton:hover {
+    opacity: 1;
+}
+
+.bottomControls {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8em;
+}
+
+.actionButton {
+    --disenuio-button-bg: color-mix(in srgb, var(--disenuio-color-toast-icon) 50%, transparent);
+    --disenuio-button-hover-bg: var(--disenuio-color-toast-icon);
+    --disenuio-button-radius: 999px;
+}
+
+.progressBarContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.progressBarOffset {
+    position: absolute;
+    align-self: center;
+    z-index: 1001;
+    background-color: rgba(0, 0, 0, 0.1);
+    width: 90%;
+    height: 6px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progressBar {
+    position: relative;
+    display: block;
+    background-color: var(--disenuio-color-toast-icon, inherit);
+    opacity: 0.5;
+    height: 90%;
+    transform-origin: left center;
+    animation: progress linear forwards;
+    animation-duration: var(--duration);
+}
+
+.progressBar[data-active="false"],
+.progressBar[data-paused="true"] {
+    animation-play-state: paused;
+}
+
+@keyframes progress {
+    from {
+        width: 100%;
+    }
+    to {
+        width: 0%;
+    }
+}
+
+.topCenter,
+.topLeft,
+.topRight {
+    --translateY: -20px;
+}
+
+.bottomCenter,
+.bottomLeft,
+.bottomRight {
+    --translateY: 20px;
+}
+
+.animateIn {
+    --opacity-start: 0;
+    --opacity-end: 1;
+    --translateY-start: var(--translateY);
+    --translateY-end: 0;
+
+    animation: slideIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animateOut {
+    --opacity-start: 1;
+    --opacity-end: 0;
+    --translateY-start: 0;
+    --translateY-end: var(--translateY);
+
+    animation: slideOut 0.35s cubic-bezier(0.7, 0, 0.84, 0) forwards;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: var(--opacity-start);
+        transform: translateY(var(--translateY-start));
+    }
+
+    to {
+        opacity: var(--opacity-end);
+        transform: translateY(var(--translateY-end));
+    }
+}
+
+@keyframes slideOut {
+    from {
+        opacity: var(--opacity-start);
+        transform: translateY(var(--translateY-start));
+    }
+
+    to {
+        opacity: var(--opacity-end);
+        transform: translateY(var(--translateY-end));
+    }
+}
+
+/* Types */
+.success {
+    --disenuio-color-toast-background: #ecfdf5;
+    --disenuio-color-toast-title: #065f46;
+    --disenuio-color-toast-message: #047857;
+    --disenuio-color-toast-closeButton: #34d399;
+    --disenuio-color-toast-icon: #34d399;
+}
+
+.warning {
+    --disenuio-color-toast-background: #fffbeb;
+    --disenuio-color-toast-title: #92400e;
+    --disenuio-color-toast-message: #b45309;
+    --disenuio-color-toast-closeButton: #fbbf24;
+    --disenuio-color-toast-icon: #fbbf24;
+}
+
+.error {
+    --disenuio-color-toast-background: #fef2f2;
+    --disenuio-color-toast-title: #92400e;
+    --disenuio-color-toast-message: #b45309;
+    --disenuio-color-toast-closeButton: #f87171;
+    --disenuio-color-toast-icon: #f87171;
+}
+
+.info {
+    --disenuio-color-toast-background: #eff6ff;
+    --disenuio-color-toast-title: #1e40af;
+    --disenuio-color-toast-message: #1c51b9;
+    --disenuio-color-toast-closeButton: #60a5fa;
+    --disenuio-color-toast-icon: #60a5fa;
+}
+
+.bottomCenter {
+    top: auto;
+    bottom: 0;
+}
+
+/* Tablet & Desktop Layout Scaling */
+@media (min-width: 768px) {
+    .topCenter,
+    .bottomCenter {
+        justify-self: center;
+    }
+
+    .topLeft,
+    .bottomLeft {
+        justify-self: left;
+    }
+
+    .topRight,
+    .bottomRight {
+        justify-self: right;
+    }
+
+    .bottomLeft,
+    .bottomRight {
+        top: auto;
+        bottom: 0;
+    }
+}
+
+/*
+ * Reduced motion: keep the fade, drop the slide. The animation itself must stay,
+ * because the toast unmounts when its exit animation ends.
+ */
+@media (prefers-reduced-motion: reduce) {
+    .topCenter,
+    .topLeft,
+    .topRight,
+    .bottomCenter,
+    .bottomLeft,
+    .bottomRight {
+        --translateY: 0px;
+    }
+}

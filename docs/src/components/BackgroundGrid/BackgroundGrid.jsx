@@ -25,6 +25,7 @@ export default function BackgroundGrid() {
         window.addEventListener('pointerleave', onLeave)
 
         return () => {
+            cancelAnimationFrame(raf)
             window.removeEventListener('pointermove', onMove)
             window.removeEventListener('pointerleave', onLeave)
         }

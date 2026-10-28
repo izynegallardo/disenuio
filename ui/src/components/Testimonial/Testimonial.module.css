@@ -2,89 +2,116 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    margin: 6.5em auto 1em;
-    padding: 7.5em 1.5em 2em;
+    margin: 1em auto;
+    padding: 2em 1.5em;
     max-width: 400px;
     background-color: var(--disenuio-color-testimonial-background);
     color: var(--disenuio-color-testimonial-color);
     border-radius: 8px;
 }
 
-.modelContainer {
-    position: absolute;
-    top: -90px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 10;
+/*
+ * The image overhangs the top edge of the card. It sits in the normal flow and
+ * pulls itself up with a negative margin, so the text always follows the image
+ * whatever its height. The card only reserves that room above itself when an
+ * image is given.
+ */
+.hasImage {
+    margin-top: 6.5em;
+    padding-top: 0;
 }
 
-.model {
+.imageContainer {
+    position: relative;
+    z-index: 1;
+    align-self: center;
+    margin-top: -5.625em;
+    width: 100%;
+    max-width: 344px;
+}
+
+/* Styles whatever element is passed as the image (img, picture, ...). */
+.imageContainer > * {
+    display: block;
     border-radius: 12px;
     box-shadow:
         0px 10px 15px -3px rgba(0, 0, 0, 0.1),
         0px 4px 6px -2px rgba(0, 0, 0, 0.05);
-    width: 344px;
+    width: 100%;
     height: auto;
     aspect-ratio: 344 / 206;
     object-fit: cover;
     object-position: center 18%;
 }
 
-.quotes {
+.quote {
     display: flex;
     flex-direction: column;
-    margin-top: 40px;
-    padding: 0;
+    margin: 0;
+}
+
+.imageContainer + .quote {
+    margin-top: 2.75em;
 }
 
 .quotesIcon {
-    width: 48px;
+    width: 3em;
     opacity: 0.1;
 }
 
-.quotesMessage,
-.name,
-.companyPosition {
-    word-break: break-word;
-}
-
-.quotesMessage {
+.quoteMessage {
     margin: 0.5em 0 0;
     font-size: 1.1rem;
 }
 
+.caption {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.5em;
+}
+
 .name {
-    margin: 1.5em 0 0;
     font-weight: 700;
 }
 
 .companyPosition {
-    margin: 0;
     opacity: 0.88;
 }
 
 @media (min-width: 768px) {
     .testimonial {
-        flex-direction: row;
+        --disenuio-testimonial-image-width: 18.75em;
+        --disenuio-testimonial-image-inset: 2.375em;
+        justify-content: center;
+        margin: 2em auto;
+        padding: 2.5em 1.875em;
         max-width: 960px;
         min-height: 320px;
-        margin: 2em auto;
-        padding: 40px 30px 40px 370px;
     }
 
-    .modelContainer {
+    .hasImage {
+        padding-left: calc(
+            var(--disenuio-testimonial-image-inset) +
+            var(--disenuio-testimonial-image-width) +
+            2em
+        );
+    }
+
+    .imageContainer {
+        position: absolute;
         top: 50%;
-        left: 38px;
+        left: var(--disenuio-testimonial-image-inset);
         transform: translateY(-50%);
+        margin-top: 0;
+        width: var(--disenuio-testimonial-image-width);
+        max-width: none;
     }
 
-    .model {
-        width: 300px;
-        height: 360px;
+    .imageContainer > * {
+        height: 22.5em;
     }
 
-    .quotes {
-        justify-content: center;
+    .imageContainer + .quote {
         margin-top: 0;
     }
 }

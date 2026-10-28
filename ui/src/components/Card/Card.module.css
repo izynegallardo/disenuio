@@ -1,13 +1,16 @@
 .card {
     position: relative;
     border-radius: 12px;
-    margin-top: 24px;
-    padding: 24px 16px;
+    padding: 1.5em 1em;
     max-width: 100%;
     min-height: auto;
     background-color: var(--disenuio-color-card);
     text-align: center;
     box-shadow: 0 2px 12px 0px rgba(0, 0, 0, 0.05);
+}
+
+.card:has(> .iconWrapper) {
+    margin-top: 2em;
 }
 
 .iconWrapper {
@@ -19,26 +22,30 @@
     align-items: center;
     justify-content: center;
     border-radius: 8px;
-    width: 44px;
-    height: 44px;
+    width: 2.75em;
+    height: 2.75em;
     background: var(--disenuio-color-primary);
     overflow: hidden;
 }
 
 .iconWrapper > * {
-    width: 24px;
-    height: 24px;
+    width: 1.5em;
+    height: 1.5em;
     color: var(--disenuio-color-on-primary);
     object-fit: contain;
 }
 
 .title {
-    margin-top: 16px;
-    margin-bottom: 8px;
+    margin-top: 0.9em;
+    margin-bottom: 0.45em;
     font-size: var(--disenuio-font-size-large);
     color: var(--disenuio-color-ink);
     inline-size: 100%;
     word-break: break-word;
+}
+
+.title:first-child {
+    margin-top: 0;
 }
 
 .message {
@@ -48,24 +55,27 @@
 
 @media (min-width: 768px) {
     .card {
-        margin-top: 30px;
-        padding: 32px 24px;
+        padding: 2em 1.5em;
         max-width: 384px;
         min-height: 208px;
     }
 
+    .card:has(> .iconWrapper) {
+        margin-top: 1.875em;
+    }
+
     .iconWrapper {
-        width: 48px;
-        height: 48px;
+        width: 3em;
+        height: 3em;
     }
 
     .iconWrapper > * {
-        width: 28px;
-        height: 28px;
+        width: 1.75em;
+        height: 1.75em;
     }
 
     .title {
-        margin-bottom: 12px;
+        margin-bottom: 0.65em;
     }
 }
 

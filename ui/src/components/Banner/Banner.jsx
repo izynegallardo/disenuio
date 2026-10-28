@@ -12,6 +12,7 @@ const ICON_MAP = {
 export default function Banner({
     status = 'info', // info || success || warning || error
     title,
+    titleAs: TitleTag = 'p',
     message,
     className,
     ...rest
@@ -21,10 +22,10 @@ export default function Banner({
     const bannerClass = classNames(styles.banner, styles[status], className)
 
     return (
-        <div {...rest} className={bannerClass} aria-live='polite' data-disenuio=''>
+        <div role='status' {...rest} className={bannerClass} data-disenuio=''>
             <div className={styles.iconContainer}>{icon}</div>
             <div className={styles.content}>
-                {title && <h4 className={styles.title}>{title}</h4>}
+                {title && <TitleTag className={styles.title}>{title}</TitleTag>}
                 {message && <p className={styles.message}>{message}</p>}
             </div>
         </div>

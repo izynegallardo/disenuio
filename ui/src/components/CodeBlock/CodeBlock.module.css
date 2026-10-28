@@ -38,6 +38,28 @@
     color: var(--disenuio-color-on-primary);
 }
 
+.copyButton:focus-visible,
+.codePanel:focus-visible {
+    outline: 2px solid var(--disenuio-color-focus-ring);
+    outline-offset: 2px;
+}
+
+.codePanel:focus-visible {
+    outline-offset: -2px;
+}
+
+.srOnly {
+    position: absolute;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
 .codePanel {
     overflow-x: auto;
     padding: 1em;

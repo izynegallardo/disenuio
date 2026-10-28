@@ -1,14 +1,27 @@
+/*
+ * Customization hooks. All optional: set them on the button's own class instead of
+ * overriding its rules, so no specificity fight and no :hover resets are needed.
+ *
+ *   --disenuio-button-bg          background color
+ *   --disenuio-button-hover-bg    background color on hover (reused for :active on solid)
+ *   --disenuio-button-color       text and icon color
+ *   --disenuio-button-radius      border radius
+ *   --disenuio-button-padding     padding shorthand
+ *   --disenuio-button-min-width   minimum width
+ *   --disenuio-button-min-height  minimum height
+ *
+ * To take the parent's color use `currentColor`. `inherit` on a custom property
+ * inherits the variable, not the color.
+ */
 .button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: var(--disenuio-space-sm);
-    min-width: 32px;
-    min-height: 32px;
-    margin: var(--disenuio-space-sm) 0;
-    padding: var(--disenuio-space-sm) var(--disenuio-space-md);
+    margin: 0;
     border: 1px solid transparent;
-    border-radius: var(--disenuio-radius);
+    border-radius: var(--disenuio-button-radius, var(--disenuio-radius));
+    white-space: nowrap;
     cursor: pointer;
     transition:
         background-color var(--disenuio-transition),
@@ -26,50 +39,56 @@
     opacity: 0.5;
 }
 
-/* Sizes */
+/* Sizes: fixed minimum heights (32 / 36 / 40px), padding scales with the font size */
 .sm {
+    min-width: var(--disenuio-button-min-width, 32px);
+    min-height: var(--disenuio-button-min-height, 32px);
+    padding: var(--disenuio-button-padding, 0 0.75em);
     font-size: var(--disenuio-font-size-small);
 }
 
 .md {
+    min-width: var(--disenuio-button-min-width, 36px);
+    min-height: var(--disenuio-button-min-height, 36px);
+    padding: var(--disenuio-button-padding, 0 1em);
     font-size: var(--disenuio-font-size-medium);
 }
 
 .lg {
+    min-width: var(--disenuio-button-min-width, 40px);
+    min-height: var(--disenuio-button-min-height, 40px);
+    padding: var(--disenuio-button-padding, 0 1.5em);
     font-size: var(--disenuio-font-size-large);
 }
 
 /* Variants */
 .solid {
-    background-color: var(--disenuio-color-primary);
-    color: var(--disenuio-color-on-primary);
+    background-color: var(--disenuio-button-bg, var(--disenuio-color-primary));
+    color: var(--disenuio-button-color, var(--disenuio-color-on-primary));
 }
 
 .solid:hover:not(:disabled) {
-    background-color: var(--disenuio-color-primary-hover);
+    background-color: var(--disenuio-button-hover-bg, var(--disenuio-color-primary-hover));
 }
 
 .solid:active:not(:disabled) {
-    background-color: var(--disenuio-color-primary-active);
+    background-color: var(--disenuio-button-hover-bg, var(--disenuio-color-primary-active));
 }
 
 .outline {
-    border-color: var(--disenuio-color-primary);
-    background-color: transparent;
-    color: var(--disenuio-color-primary);
-}
-
-.outline:hover:not(:disabled) {
-    background-color: var(--disenuio-color-primary-subtle);
+    border-color: currentColor;
+    background-color: var(--disenuio-button-bg, transparent);
+    color: var(--disenuio-button-color, var(--disenuio-color-primary));
 }
 
 .ghost {
-    background-color: transparent;
-    color: var(--disenuio-color-primary);
+    background-color: var(--disenuio-button-bg, transparent);
+    color: var(--disenuio-button-color, var(--disenuio-color-primary));
 }
 
+.outline:hover:not(:disabled),
 .ghost:hover:not(:disabled) {
-    background-color: var(--disenuio-color-primary-subtle);
+    background-color: var(--disenuio-button-hover-bg, var(--disenuio-color-primary-subtle));
 }
 
 /* Status */
