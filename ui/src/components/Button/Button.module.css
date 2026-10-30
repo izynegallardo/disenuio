@@ -21,6 +21,7 @@
     margin: 0;
     border: 1px solid transparent;
     border-radius: 8px;
+    max-height: max-content;
     white-space: nowrap;
     cursor: pointer;
     transition:

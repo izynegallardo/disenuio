@@ -1,7 +1,6 @@
 .codeBlock {
     border: 1px solid var(--disenuio-color-line);
     border-radius: 0.75em;
-    height: 6em;
     background-color: var(--disenuio-color-navy);
     color: #e0f2fe;
     overflow: hidden;
@@ -46,18 +45,6 @@
 
 .codePanel:focus-visible {
     outline-offset: -2px;
-}
-
-.srOnly {
-    position: absolute;
-    margin: -1px;
-    border: 0;
-    padding: 0;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    clip-path: inset(50%);
-    white-space: nowrap;
 }
 
 .codePanel {

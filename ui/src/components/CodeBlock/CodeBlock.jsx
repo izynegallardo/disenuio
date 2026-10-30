@@ -1,4 +1,5 @@
 import React from 'react'
+import a11y from '../../styles/a11y.module.css'
 import { classNames } from '../../utils/classNames'
 import { CheckIcon, CopyIcon } from '../Icons/Icons'
 import styles from './CodeBlock.module.css'
@@ -46,7 +47,7 @@ export default function CodeBlock({ label, code, resetTime = 1400, className, ..
                     )}
                     {copied ? 'Copied' : 'Copy'}
                 </button>
-                <span role='status' className={styles.srOnly}>
+                <span role='status' className={a11y.srOnly}>
                     {copied ? 'Copied to clipboard' : ''}
                 </span>
             </div>

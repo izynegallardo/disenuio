@@ -7,6 +7,7 @@ const EXIT_FALLBACK_MS = 1000
 
 export default function useMount({
     mountOnRender = false,
+    open = true,
     duration,
     pauseOnHover = false,
     functionOnClose,
@@ -33,6 +34,12 @@ export default function useMount({
     React.useEffect(() => {
         remainingTimeRef.current = duration
     }, [duration])
+
+    // Lets a parent close the component from code, still with its exit animation.
+    // It is one way: once closed and unmounted, setting `open` back to true does nothing.
+    React.useEffect(() => {
+        if (!open) setIsActive(false)
+    }, [open])
 
     React.useEffect(() => {
         if (isMounted && isActive && duration && !isPaused) {

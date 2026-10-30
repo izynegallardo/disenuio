@@ -1,4 +1,6 @@
+import a11y from '../../styles/a11y.module.css'
 import { classNames } from '../../utils/classNames'
+import { STATUS_LABELS } from '../../utils/statusLabels'
 import { ErrorIcon, InfoIcon, SuccessIcon, WarningIcon } from '../Icons/Icons'
 import styles from './Banner.module.css'
 
@@ -11,6 +13,7 @@ const ICON_MAP = {
 
 export default function Banner({
     status = 'info', // info || success || warning || error
+    statusLabel = STATUS_LABELS[status], // read by screen readers before the title, '' to omit
     title,
     titleAs: TitleTag = 'p',
     message,
@@ -25,6 +28,7 @@ export default function Banner({
         <div role='status' {...rest} className={bannerClass} data-disenuio=''>
             <div className={styles.iconContainer}>{icon}</div>
             <div className={styles.content}>
+                {statusLabel && <span className={a11y.srOnly}>{statusLabel}</span>}
                 {title && <TitleTag className={styles.title}>{title}</TitleTag>}
                 {message && <p className={styles.message}>{message}</p>}
             </div>

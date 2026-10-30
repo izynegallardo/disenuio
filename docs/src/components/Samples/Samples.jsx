@@ -1,18 +1,51 @@
+import { Button } from 'disenuio'
 import React from 'react'
-
-import { Banner, Button, Card, Testimonial, Toast, ToolTip } from 'disenuio'
-import Badges from '../Badges/Badges'
-
-import { uploadIcon } from '../Icons/Icons'
-import model from '../../assets/model.jpg'
-
 import Section from '../Section/Section'
+import BadgeSamples from './Badge/BadgeSamples'
+import BannerSamples from './Banner/BannerSamples'
+import ButtonSamples from './Button/ButtonSamples'
+import CardSamples from './Card/CardSamples'
 import styles from './Samples.module.css'
+import TestimonialSamples from './Testimonial/TestimonialSamples'
+import ToastSamples from './Toast/ToastSamples'
+import ToolTipSamples from './ToolTip/ToolTipSamples'
 
-const tabs = ['Badge', 'Button', 'Banner', 'Card', 'Testimonial', 'Toast', 'Tooltip']
+const SAMPLES = {
+    Badge: BadgeSamples,
+    Button: ButtonSamples,
+    Banner: BannerSamples,
+    Card: CardSamples,
+    Testimonial: TestimonialSamples,
+    Toast: ToastSamples,
+    Tooltip: ToolTipSamples,
+}
+
+const tabs = Object.keys(SAMPLES)
 
 export default function Samples() {
     const [tab, setTab] = React.useState(tabs[0])
+    const baseId = React.useId()
+
+    const tabId = (name) => `${baseId}-tab-${name.toLowerCase()}`
+    const panelId = `${baseId}-panel`
+
+    // Arrow keys, Home and End move between tabs (WAI-ARIA tabs pattern).
+    function handleKeyDown(event) {
+        const current = tabs.indexOf(tab)
+        let next
+
+        if (event.key === 'ArrowRight') next = (current + 1) % tabs.length
+        else if (event.key === 'ArrowLeft') next = (current - 1 + tabs.length) % tabs.length
+        else if (event.key === 'Home') next = 0
+        else if (event.key === 'End') next = tabs.length - 1
+        else return
+
+        event.preventDefault()
+        setTab(tabs[next])
+        event.currentTarget.querySelectorAll('[role="tab"]')[next].focus()
+    }
+
+    const Sample = SAMPLES[tab]
 
     return (
         <Section
@@ -21,73 +54,40 @@ export default function Samples() {
             blurb='Every component, every state. Pick one on the left and click around.'
         >
             <div className={styles.tabContainer}>
-                <div className={styles.tabList} role='tablist'>
-                    {tabs.map((t) => (
+                <div
+                    className={styles.tabList}
+                    role='tablist'
+                    aria-label='Components'
+                    onKeyDown={handleKeyDown}
+                >
+                    {tabs.map((name) => (
                         <Button
-                            className={`${styles.tabButton} ${tab === t ? styles.focusTab : ''}`}
-                            key={t}
+                            className={`${styles.tabButton} ${tab === name ? styles.focusTab : ''}`}
+                            key={name}
+                            id={tabId(name)}
                             variant='ghost'
-                            onClick={() => {
-                                setTab(t)
-                            }}
                             role='tab'
-                            aria-selected={tab === t}
+                            aria-selected={tab === name}
+                            aria-controls={panelId}
+                            tabIndex={tab === name ? 0 : -1}
+                            onClick={() => setTab(name)}
                         >
-                            {t}
+                            {name}
                         </Button>
                     ))}
                 </div>
-                <div className={styles.panel}>
+                <div
+                    className={styles.panel}
+                    role='tabpanel'
+                    id={panelId}
+                    aria-labelledby={tabId(tab)}
+                >
                     <h3 className={styles.panelName}>{tab}</h3>
-                    <div className={styles.components}>{tab === 'Badge' && <Badges />}</div>
+                    <div className={styles.components}>
+                        <Sample />
+                    </div>
                 </div>
             </div>
         </Section>
     )
 }
-
-// {/* {variants.map((variant) => (
-//     <div className={styles.group} key={variant}>
-//         <p className={styles.groupLabel}>{variant}</p>
-//         <div className={styles.row}>
-//             {sizes.map((size) => (
-//                 <Button key={size} variant={variant} size={size}>
-//                     {size}
-//                 </Button>
-//             ))}
-//             <Button variant={variant} disabled>
-//                 disabled
-//             </Button>
-//         </div>
-//     </div>
-// ))} */}
-// <Button onClick={() => console.log('Clicked!')}>Button</Button>
-// <Badge shape='pill'>Badge</Badge>
-// <Banner
-//     title='Banner Component'
-//     message='Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur, ipsum similique veniam.'
-// />
-// <Card
-//     icon={uploadIcon}
-//     title='Card Component'
-//     message='Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.'
-// />
-// <Testimonial
-//     image={<img src={model} alt='Portrait of May Andersons' />}
-//     message='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed urna nulla vitae laoreet augue. Amet feugiat est integer dolor auctor adipiscing nunc urna, sit.'
-//     name='May Andersons'
-//     companyPosition='Workcation, CTO'
-// />
-// <ToolTip
-//     title='Tooltip Component'
-//     message='Lorem ipsum dolor sit amet consectetur adipisicing elit oluptatum tenetur.'
-// />
-// <Toast
-//     pauseOnHover
-//     showProgress
-//     closeButton
-//     type='success'
-//     title='Toast Component'
-//     message='Lorem ipsum dolor sit amet consectetur adipisicing elit oluptatum tenetur.'
-//     action={{ label: 'Undo', onClick: () => console.log('Undo clicked') }}
-// />

@@ -1,6 +1,8 @@
 import useMount from '../../hooks/useMount'
+import a11y from '../../styles/a11y.module.css'
 import { clamp } from '../../utils/clamp'
 import { classNames } from '../../utils/classNames'
+import { STATUS_LABELS } from '../../utils/statusLabels'
 import Button from '../Button/Button'
 import {
     BellIcon,
@@ -22,15 +24,17 @@ const ICON_MAP = {
 export default function Toast({
     position = 'topCenter', // topCenter || topLeft || topRight || bottomCenter || bottomLeft || bottomRight
     type, // default || success || warning || error || info
+    statusLabel = STATUS_LABELS[type], // read by screen readers before the title, '' to omit
     title,
     titleAs: TitleTag = 'p',
     message,
     action, // { label: string, onClick?: (event) => void }
     duration = 4000,
-    pauseOnHover,
+    pauseOnHover = true, // hover or keyboard focus pauses the countdown (WCAG 2.2.1)
     showProgress,
     closeButton,
     closeLabel = 'Close',
+    open = true, // false closes it with the exit animation (used by ToastProvider)
     onClose,
     className,
     ...rest
@@ -40,6 +44,7 @@ export default function Toast({
     const { isMounted, isActive, isPaused, handleClose, handleAnimationEnd, pauseHandlers } =
         useMount({
             mountOnRender: true,
+            open,
             duration: clampDuration,
             pauseOnHover,
             functionOnClose: onClose,
@@ -65,18 +70,27 @@ export default function Toast({
         handleClose()
     }
 
+    function handleKeyDown(event) {
+        rest.onKeyDown?.(event)
+
+        // Escape dismisses the toast while focus is inside it.
+        if (event.key === 'Escape' && !event.defaultPrevented) handleClose()
+    }
+
     return isMounted ? (
         <div
             role={role}
             {...rest}
             className={toastClass}
             data-disenuio=''
+            onKeyDown={handleKeyDown}
             onAnimationEnd={handleAnimationEnd}
             {...pauseHandlers}
         >
             <div className={styles.contentContainer}>
                 <div className={styles.iconContainer}>{icon}</div>
                 <div className={styles.content}>
+                    {statusLabel && <span className={a11y.srOnly}>{statusLabel}</span>}
                     {title && <TitleTag className={styles.title}>{title}</TitleTag>}
                     {message && <p className={styles.message}>{message}</p>}
                 </div>

@@ -71,7 +71,8 @@
     align-items: start;
     width: 20px;
     height: 20px;
-    opacity: 0.5;
+    /* 0.75 keeps every type above 3:1 against its background (WCAG 1.4.11). */
+    opacity: 0.75;
     transition: opacity 0.3s ease;
 }
 
@@ -86,8 +87,9 @@
 }
 
 .actionButton {
-    --disenuio-button-bg: color-mix(in srgb, var(--disenuio-color-toast-icon) 50%, transparent);
-    --disenuio-button-hover-bg: var(--disenuio-color-toast-icon);
+    /* Solid fills with white text: at least 4.5:1 for every type (WCAG 1.4.3). */
+    --disenuio-button-bg: var(--disenuio-color-toast-action);
+    --disenuio-button-hover-bg: var(--disenuio-color-toast-action-hover);
     --disenuio-button-radius: 999px;
 }
 
@@ -187,12 +189,17 @@
     }
 }
 
-/* Types */
+/*
+ * Types. The icon keeps the light status color (it is decorative, the status is also
+ * announced as text). Everything a user has to read or press uses the dark colors.
+ */
 .success {
     --disenuio-color-toast-background: #ecfdf5;
     --disenuio-color-toast-title: #065f46;
     --disenuio-color-toast-message: #047857;
-    --disenuio-color-toast-closeButton: #34d399;
+    --disenuio-color-toast-closeButton: var(--disenuio-color-toast-title);
+    --disenuio-color-toast-action: var(--disenuio-color-toast-title);
+    --disenuio-color-toast-action-hover: var(--disenuio-color-toast-message);
     --disenuio-color-toast-icon: #34d399;
 }
 
@@ -200,15 +207,19 @@
     --disenuio-color-toast-background: #fffbeb;
     --disenuio-color-toast-title: #92400e;
     --disenuio-color-toast-message: #b45309;
-    --disenuio-color-toast-closeButton: #fbbf24;
+    --disenuio-color-toast-closeButton: var(--disenuio-color-toast-title);
+    --disenuio-color-toast-action: var(--disenuio-color-toast-title);
+    --disenuio-color-toast-action-hover: var(--disenuio-color-toast-message);
     --disenuio-color-toast-icon: #fbbf24;
 }
 
 .error {
     --disenuio-color-toast-background: #fef2f2;
-    --disenuio-color-toast-title: #92400e;
-    --disenuio-color-toast-message: #b45309;
-    --disenuio-color-toast-closeButton: #f87171;
+    --disenuio-color-toast-title: #991b1b;
+    --disenuio-color-toast-message: #b91c1c;
+    --disenuio-color-toast-closeButton: var(--disenuio-color-toast-title);
+    --disenuio-color-toast-action: var(--disenuio-color-toast-title);
+    --disenuio-color-toast-action-hover: var(--disenuio-color-toast-message);
     --disenuio-color-toast-icon: #f87171;
 }
 
@@ -216,8 +227,25 @@
     --disenuio-color-toast-background: #eff6ff;
     --disenuio-color-toast-title: #1e40af;
     --disenuio-color-toast-message: #1c51b9;
-    --disenuio-color-toast-closeButton: #60a5fa;
+    --disenuio-color-toast-closeButton: var(--disenuio-color-toast-title);
+    --disenuio-color-toast-action: var(--disenuio-color-toast-title);
+    --disenuio-color-toast-action-hover: var(--disenuio-color-toast-message);
     --disenuio-color-toast-icon: #60a5fa;
+}
+
+.topCenter,
+.bottomCenter {
+    justify-self: center;
+}
+
+.topLeft,
+.bottomLeft {
+    justify-self: left;
+}
+
+.topRight,
+.bottomRight {
+    justify-self: right;
 }
 
 .bottomCenter {
@@ -225,28 +253,10 @@
     bottom: 0;
 }
 
-/* Tablet & Desktop Layout Scaling */
-@media (min-width: 768px) {
-    .topCenter,
-    .bottomCenter {
-        justify-self: center;
-    }
-
-    .topLeft,
-    .bottomLeft {
-        justify-self: left;
-    }
-
-    .topRight,
-    .bottomRight {
-        justify-self: right;
-    }
-
-    .bottomLeft,
-    .bottomRight {
-        top: auto;
-        bottom: 0;
-    }
+.bottomLeft,
+.bottomRight {
+    top: auto;
+    bottom: 0;
 }
 
 /*

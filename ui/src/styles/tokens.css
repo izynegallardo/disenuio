@@ -87,6 +87,8 @@
     --disenuio-color-toast-title: #111827;
     --disenuio-color-toast-message: #6b7280;
     --disenuio-color-toast-closeButton: var(--disenuio-color-primary);
+    --disenuio-color-toast-action: var(--disenuio-color-primary);
+    --disenuio-color-toast-action-hover: var(--disenuio-color-primary-hover);
     --disenuio-color-toast-opacity-visible: 1;
     --disenuio-color-toast-opacity-invisible: 0;
 

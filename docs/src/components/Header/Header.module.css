@@ -13,8 +13,8 @@
     height: 56px;
 }
 
-.titleBtn {
-    border: none;
+.titleLink {
+    display: block;
     width: max-content;
     background: var(--disenuio-gradient-brand);
     -webkit-background-clip: text;
@@ -24,6 +24,7 @@
     font-family: var(--disenuio-font-family);
     font-size: 1.05rem;
     font-weight: bold;
+    text-decoration: none;
 }
 
 .headerNav {
@@ -33,19 +34,26 @@
     margin-left: auto;
 }
 
-.navBtn {
-    border: none;
+.navLink {
     border-radius: 8px;
     background-color: transparent;
     padding: 0.375em 0.75em;
     color: var(--disenuio-color-secondary);
     font-family: var(--disenuio-font-family);
     font-weight: 500;
+    text-decoration: none;
     transition: background-color 0.3s ease;
 }
 
-.navBtn:hover {
+.navLink:hover {
     background-color: var(--disenuio-color-border);
+}
+
+.titleLink:focus-visible,
+.navLink:focus-visible,
+.headerLink:focus-visible {
+    outline: 2px solid var(--disenuio-color-focus-ring);
+    outline-offset: 2px;
 }
 
 .headerIcons {
