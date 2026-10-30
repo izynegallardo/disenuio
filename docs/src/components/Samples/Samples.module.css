@@ -1,16 +1,41 @@
-.group {
-    margin-bottom: 1.5em;
+.tabContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5em;
 }
 
-.groupLabel {
-    margin: 0 0 0.5em;
-    color: var(--disenuio-color-ink-soft);
+.tabList {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    overflow-x: auto;
+}
+
+.tabButton {
+    padding: 0.714286em 1.14286em;
+    min-width: max-content;
     font-size: 0.875rem;
 }
 
-.row {
+.tabButton.focusTab,
+.focusTab:hover:not(:disabled) {
+    background-color: var(--disenuio-color-primary);
+    color: #e0f2fe;
+}
+
+.panel {
+    flex: 1;
     display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 1em;
+    flex-direction: column;
+    padding: 1.5em;
+    background-color: var(--disenuio-color-card);
+}
+
+.panelName {
+    margin: 0 0 1.2em;
+    font-size: 1.25rem;
+}
+
+.components {
+    min-height: 300px;
 }

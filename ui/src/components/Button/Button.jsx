@@ -2,8 +2,8 @@ import { classNames } from '../../utils/classNames'
 import styles from './Button.module.css'
 
 export default function Button({
-    variant = 'solid',
-    size = 'md',
+    variant = 'solid', // solid || outline || ghost
+    size = 'medium', // small || medium || large
     type = 'button',
     className,
     children,

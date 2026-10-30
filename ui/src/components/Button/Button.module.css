@@ -20,7 +20,7 @@
     gap: var(--disenuio-space-sm);
     margin: 0;
     border: 1px solid transparent;
-    border-radius: var(--disenuio-button-radius, var(--disenuio-radius));
+    border-radius: 8px;
     white-space: nowrap;
     cursor: pointer;
     transition:
@@ -40,21 +40,21 @@
 }
 
 /* Sizes: fixed minimum heights (32 / 36 / 40px), padding scales with the font size */
-.sm {
+.small {
     min-width: var(--disenuio-button-min-width, 32px);
     min-height: var(--disenuio-button-min-height, 32px);
     padding: var(--disenuio-button-padding, 0 0.75em);
     font-size: var(--disenuio-font-size-small);
 }
 
-.md {
+.medium {
     min-width: var(--disenuio-button-min-width, 36px);
     min-height: var(--disenuio-button-min-height, 36px);
     padding: var(--disenuio-button-padding, 0 1em);
     font-size: var(--disenuio-font-size-medium);
 }
 
-.lg {
+.large {
     min-width: var(--disenuio-button-min-width, 40px);
     min-height: var(--disenuio-button-min-height, 40px);
     padding: var(--disenuio-button-padding, 0 1.5em);
