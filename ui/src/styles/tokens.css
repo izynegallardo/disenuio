@@ -18,6 +18,9 @@
     --disenuio-color-muted: #9a9a9a;
     --disenuio-color-border: #d2e1ed;
     --disenuio-color-card: #f9fafb;
+    --disenuio-color-surface: #ffffff;
+    /* Resting state of form controls (toggle track). 3:1 against the card color. */
+    --disenuio-color-control-off: #7b8798;
 
     --disenuio-color-canvas: #eaf3f9;
     --disenuio-color-ink: #0f1f3d;

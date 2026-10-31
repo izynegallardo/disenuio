@@ -1,22 +1,31 @@
 import { Button } from 'disenuio'
 import React from 'react'
+import { handleKeyDown } from '../../utils/handleKeyDown'
 import Section from '../Section/Section'
 import BadgeSamples from './Badge/BadgeSamples'
 import BannerSamples from './Banner/BannerSamples'
 import ButtonSamples from './Button/ButtonSamples'
 import CardSamples from './Card/CardSamples'
+import InputSamples from './Input/InputSamples'
 import styles from './Samples.module.css'
+import SegmentedSamples from './Segmented/SegmentedSamples'
+import SliderSamples from './Slider/SliderSamples'
 import TestimonialSamples from './Testimonial/TestimonialSamples'
 import ToastSamples from './Toast/ToastSamples'
+import ToggleSamples from './Toggle/ToggleSamples'
 import ToolTipSamples from './ToolTip/ToolTipSamples'
 
 const SAMPLES = {
     Badge: BadgeSamples,
-    Button: ButtonSamples,
     Banner: BannerSamples,
+    Button: ButtonSamples,
     Card: CardSamples,
+    Input: InputSamples,
+    Segmented: SegmentedSamples,
+    Slider: SliderSamples,
     Testimonial: TestimonialSamples,
     Toast: ToastSamples,
+    Toggle: ToggleSamples,
     Tooltip: ToolTipSamples,
 }
 
@@ -28,22 +37,6 @@ export default function Samples() {
 
     const tabId = (name) => `${baseId}-tab-${name.toLowerCase()}`
     const panelId = `${baseId}-panel`
-
-    // Arrow keys, Home and End move between tabs (WAI-ARIA tabs pattern).
-    function handleKeyDown(event) {
-        const current = tabs.indexOf(tab)
-        let next
-
-        if (event.key === 'ArrowRight') next = (current + 1) % tabs.length
-        else if (event.key === 'ArrowLeft') next = (current - 1 + tabs.length) % tabs.length
-        else if (event.key === 'Home') next = 0
-        else if (event.key === 'End') next = tabs.length - 1
-        else return
-
-        event.preventDefault()
-        setTab(tabs[next])
-        event.currentTarget.querySelectorAll('[role="tab"]')[next].focus()
-    }
 
     const Sample = SAMPLES[tab]
 
@@ -58,11 +51,13 @@ export default function Samples() {
                     className={styles.tabList}
                     role='tablist'
                     aria-label='Components'
-                    onKeyDown={handleKeyDown}
+                    onKeyDown={(event) => handleKeyDown(event, tabs, tab, setTab)}
                 >
                     {tabs.map((name) => (
                         <Button
-                            className={`${styles.tabButton} ${tab === name ? styles.focusTab : ''}`}
+                            className={[styles.tabButton, tab === name && styles.focusTab]
+                                .filter(Boolean)
+                                .join(' ')}
                             key={name}
                             id={tabId(name)}
                             variant='ghost'

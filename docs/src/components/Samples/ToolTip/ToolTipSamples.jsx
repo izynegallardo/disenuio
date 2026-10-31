@@ -11,9 +11,6 @@ export default function ToolTipSamples() {
 
     return (
         <div className={styles.toolTipSamples}>
-            <Button variant='outline' size='sm' onClick={() => setRound((current) => current + 1)}>
-                Show dismissed tooltips again
-            </Button>
             {variants.map((variant) => (
                 <SampleGroup key={`${variant}-${round}`} label={variant} direction='column'>
                     {colors.map((color) => (
@@ -27,6 +24,9 @@ export default function ToolTipSamples() {
                     ))}
                 </SampleGroup>
             ))}
+            <Button variant='outline' size='sm' onClick={() => setRound((current) => current + 1)}>
+                Show dismissed tooltips again
+            </Button>
         </div>
     )
 }

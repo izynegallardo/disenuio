@@ -39,7 +39,9 @@
 }
 
 .components {
+    flex: 1;
     min-height: 300px;
+    overflow: auto;
 }
 
 @media (min-width: 768px) {
@@ -49,12 +51,14 @@
         margin: 0 auto;
     }
 
+    .tabList,
+    .panel {
+        min-height: 600px;
+    }
+
     .tabList {
         flex-direction: column;
         align-items: stretch;
-    }
-
-    .panel {
-        min-height: 600px;
+        overflow: auto;
     }
 }

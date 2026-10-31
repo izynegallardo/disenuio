@@ -1,0 +1,63 @@
+/*
+ * Customization hooks. Optional:
+ *
+ *   --disenuio-toggle-color   track color when on (also the focus ring), or use the `color` prop
+ *
+ * Everything is sized in em, so the font size of the toggle scales the whole control.
+ */
+.toggle {
+    position: relative;
+    flex-shrink: 0;
+    margin: 0;
+    border: none;
+    border-radius: 9999px;
+    padding: 0;
+    width: 2.75em;
+    height: 1.5em;
+    background-color: var(--disenuio-color-control-off);
+    cursor: pointer;
+    transition: background-color var(--disenuio-transition);
+}
+
+.toggle.isChecked {
+    background-color: var(--disenuio-toggle-color, var(--disenuio-color-primary));
+}
+
+.toggle:hover:not(:disabled) {
+    filter: brightness(0.92);
+}
+
+.toggle:focus-visible {
+    outline: 2px solid var(--disenuio-toggle-color, var(--disenuio-color-focus-ring));
+    outline-offset: 2px;
+}
+
+.toggle:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.thumb {
+    position: absolute;
+    top: 0.125em;
+    left: 0.125em;
+    border-radius: 9999px;
+    width: 1.25em;
+    height: 1.25em;
+    background-color: var(--disenuio-color-surface);
+    box-shadow:
+        0 1px 3px 0 rgba(0, 0, 0, 0.1),
+        0 1px 2px -1px rgba(0, 0, 0, 0.1);
+    transition: transform var(--disenuio-transition);
+}
+
+.toggle.isChecked .thumb {
+    transform: translateX(1.25em);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .toggle,
+    .thumb {
+        transition: none;
+    }
+}

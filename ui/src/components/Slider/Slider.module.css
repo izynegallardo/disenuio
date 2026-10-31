@@ -1,0 +1,17 @@
+.slider {
+    margin: 0;
+    width: 100%;
+    max-width: 240px;
+    accent-color: var(--disenuio-color-primary);
+    cursor: pointer;
+}
+
+.slider:focus-visible {
+    outline: 2px solid var(--disenuio-color-focus-ring);
+    outline-offset: 2px;
+}
+
+.slider:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}

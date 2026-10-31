@@ -48,7 +48,7 @@ export default function CodeBlock({ label, code, resetTime = 1400, className, ..
                     {copied ? 'Copied' : 'Copy'}
                 </button>
                 <span role='status' className={a11y.srOnly}>
-                    {copied ? 'Copied to clipboard' : ''}
+                    {copied && 'Copied to clipboard'}
                 </span>
             </div>
             <section className={styles.codePanel} tabIndex={0} aria-label={`${name} code`}>

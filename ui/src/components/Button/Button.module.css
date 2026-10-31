@@ -32,7 +32,7 @@
 
 .button:focus-visible {
     outline: 2px solid var(--disenuio-color-focus-ring);
-    outline-offset: 2px;
+    outline-offset: -2px;
 }
 
 .button:disabled {
