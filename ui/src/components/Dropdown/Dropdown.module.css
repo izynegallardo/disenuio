@@ -1,0 +1,164 @@
+/*
+ * Customization hooks. Optional:
+ *
+ *   --disenuio-dropdown-max-height   height of the list before it scrolls (default 16rem)
+ */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    max-width: 320px;
+}
+
+.trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5em;
+    margin: 0;
+    border: 1px solid var(--disenuio-color-line);
+    border-radius: 0.5em;
+    padding: 0.5em 0.75em;
+    width: 100%;
+    outline: 2px solid transparent;
+    background-color: var(--disenuio-color-surface);
+    font-size: var(--disenuio-font-size-small);
+    color: var(--disenuio-color-ink);
+    text-align: left;
+    cursor: pointer;
+    transition:
+        border-color var(--disenuio-transition),
+        box-shadow var(--disenuio-transition);
+}
+
+.trigger:hover:not(:disabled) {
+    border-color: color-mix(in oklab, var(--disenuio-color-ink) 30%, transparent);
+}
+
+.trigger:focus-visible,
+.isOpen .trigger {
+    border-color: var(--disenuio-color-primary);
+    box-shadow: 0 0 0 4px color-mix(in oklab, var(--disenuio-color-primary) 15%, transparent);
+}
+
+.trigger[aria-invalid='true'] {
+    border-color: var(--disenuio-color-danger);
+}
+
+.trigger[aria-invalid='true']:focus-visible,
+.isOpen .trigger[aria-invalid='true'] {
+    box-shadow: 0 0 0 4px color-mix(in oklab, var(--disenuio-color-danger) 15%, transparent);
+}
+
+.trigger:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.value {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.placeholder {
+    color: var(--disenuio-color-secondary);
+}
+
+.chevron {
+    color: var(--disenuio-color-ink-soft);
+    transition: transform var(--disenuio-transition);
+}
+
+.isOpen .chevron {
+    transform: rotate(180deg);
+}
+
+/* The list */
+.list {
+    position: absolute;
+    top: calc(100% + 0.25em);
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    margin: 0;
+    border: 1px solid var(--disenuio-color-line);
+    border-radius: 0.5em;
+    padding: 0.25em;
+    max-height: var(--disenuio-dropdown-max-height, 16rem);
+    overflow-y: auto;
+    list-style: none;
+    background-color: var(--disenuio-color-surface);
+    box-shadow:
+        0 10px 15px -3px rgba(0, 0, 0, 0.1),
+        0 4px 6px -4px rgba(0, 0, 0, 0.1);
+    animation: dropdownIn 120ms ease-out;
+}
+
+.placementTop .list {
+    top: auto;
+    bottom: calc(100% + 0.25em);
+    animation-name: dropdownInTop;
+}
+
+.option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5em;
+    border-radius: 0.375em;
+    padding: 0.5em 0.75em;
+    font-size: var(--disenuio-font-size-small);
+    color: var(--disenuio-color-ink);
+    cursor: pointer;
+}
+
+/* Under the pointer or reached with the arrow keys */
+.isActive {
+    background-color: var(--disenuio-color-primary-subtle);
+}
+
+/* The option that matches the value */
+.isSelected {
+    font-weight: 600;
+    color: var(--disenuio-color-primary);
+}
+
+.check {
+    color: var(--disenuio-color-primary);
+}
+
+@keyframes dropdownIn {
+    from {
+        opacity: 0;
+        transform: translateY(-0.25em);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes dropdownInTop {
+    from {
+        opacity: 0;
+        transform: translateY(0.25em);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .list {
+        animation: none;
+    }
+
+    .chevron,
+    .trigger {
+        transition: none;
+    }
+}

@@ -6,6 +6,7 @@ import BadgeSamples from './Badge/BadgeSamples'
 import BannerSamples from './Banner/BannerSamples'
 import ButtonSamples from './Button/ButtonSamples'
 import CardSamples from './Card/CardSamples'
+import DropdownSamples from './Dropdown/DropdownSamples'
 import InputSamples from './Input/InputSamples'
 import styles from './Samples.module.css'
 import SegmentedSamples from './Segmented/SegmentedSamples'
@@ -20,6 +21,7 @@ const SAMPLES = {
     Banner: BannerSamples,
     Button: ButtonSamples,
     Card: CardSamples,
+    Dropdown: DropdownSamples,
     Input: InputSamples,
     Segmented: SegmentedSamples,
     Slider: SliderSamples,

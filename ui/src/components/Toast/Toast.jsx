@@ -111,7 +111,7 @@ export default function Toast({
                 <div className={styles.bottomControls}>
                     {hasAction && (
                         <Button
-                            size='sm'
+                            size='small'
                             onClick={handleAction}
                             disabled={action.disabled}
                             className={styles.actionButton}

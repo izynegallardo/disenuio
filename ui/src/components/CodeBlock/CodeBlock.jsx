@@ -52,7 +52,7 @@ export default function CodeBlock({ label, code, resetTime = 1400, className, ..
                 </span>
             </div>
             <section className={styles.codePanel} tabIndex={0} aria-label={`${name} code`}>
-                <pre style={{ margin: 0, padding: 0, whiteSpace: 'inherit' }}>
+                <pre className={styles.pre}>
                     <code>{code}</code>
                 </pre>
             </section>

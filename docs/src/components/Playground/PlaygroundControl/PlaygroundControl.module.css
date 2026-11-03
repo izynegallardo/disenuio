@@ -1,0 +1,10 @@
+/* Wraps controls that should grow with the row but not stretch across it. */
+.field {
+    flex: 1 1 auto;
+    min-width: 0;
+    max-width: 200px;
+}
+
+.fieldSmall {
+    max-width: 120px;
+}

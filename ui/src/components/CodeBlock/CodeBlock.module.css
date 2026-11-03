@@ -47,6 +47,14 @@
     outline-offset: -2px;
 }
 
+/* Keeps the line breaks and indentation of the code. */
+.pre {
+    margin: 0;
+    padding: 0;
+    white-space: pre;
+    tab-size: 4;
+}
+
 .codePanel {
     overflow-x: auto;
     padding: 1em;

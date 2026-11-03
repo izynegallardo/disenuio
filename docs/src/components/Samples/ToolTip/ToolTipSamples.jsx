@@ -24,7 +24,7 @@ export default function ToolTipSamples() {
                     ))}
                 </SampleGroup>
             ))}
-            <Button variant='outline' size='sm' onClick={() => setRound((current) => current + 1)}>
+            <Button variant='outline' size='small' onClick={() => setRound((current) => current + 1)}>
                 Show dismissed tooltips again
             </Button>
         </div>

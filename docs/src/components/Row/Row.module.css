@@ -1,0 +1,31 @@
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1em;
+    border-bottom: 1px solid var(--disenuio-color-line);
+    padding: 0.75em 0;
+}
+
+.row:last-child {
+    border-bottom: none;
+}
+
+.labelGroup {
+    display: flex;
+    flex-shrink: 0;
+    align-items: baseline;
+    gap: 0.375em;
+}
+
+.label {
+    font-size: 1rem;
+    color: var(--disenuio-color-ink-soft);
+}
+
+.hint {
+    font-size: 1rem;
+    font-variant-numeric: tabular-nums;
+    color: var(--disenuio-color-ink-soft);
+}

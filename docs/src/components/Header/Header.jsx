@@ -1,9 +1,11 @@
+import { Navbar } from 'disenuio'
 import GithubLogo from '../../assets/github.svg'
 import NPMLogo from '../../assets/npm.svg'
 import styles from './Header.module.css'
 
 // Navigation goes somewhere, so these are links, not buttons. The hash targets are the
-// `id` of each page section. Only #samples exists so far, the others are placeholders.
+// `id` of each page section. Only #samples and #playground exist so far, the others are
+// placeholders.
 const NAV_LINKS = [
     { label: 'Samples', href: '#samples' },
     { label: 'Playground', href: '#playground' },
@@ -13,37 +15,42 @@ const NAV_LINKS = [
 
 export default function Header() {
     return (
-        <header className={styles.header}>
-            <div>
-                <a className={styles.titleLink} href='/'>
-                    disenUIo
-                </a>
-            </div>
-            <nav className={styles.headerNav} aria-label='Main'>
-                {NAV_LINKS.map(({ label, href }) => (
-                    <a key={href} className={styles.navLink} href={href}>
-                        {label}
+        <Navbar className={styles.header}>
+            <Navbar.Brand href='/'>
+                <span className={styles.brandText}>disenUIo</span>
+            </Navbar.Brand>
+            <Navbar.Toggle />
+            <Navbar.Menu>
+                <Navbar.Links label='Main'>
+                    {NAV_LINKS.map(({ label, href }) => (
+                        <Navbar.Link key={href} href={href}>
+                            {label}
+                        </Navbar.Link>
+                    ))}
+                </Navbar.Links>
+                <Navbar.Actions>
+                    <a
+                        className={styles.headerLink}
+                        href='https://github.com/izynegallardo/disenUIo'
+                        target='_blank'
+                        rel='noopener'
+                    >
+                        <img
+                            className={styles.headerIcon}
+                            src={GithubLogo}
+                            alt='disenUIo on GitHub'
+                        />
                     </a>
-                ))}
-            </nav>
-            <div className={styles.headerIcons}>
-                <a
-                    className={styles.headerLink}
-                    href='https://github.com/izynegallardo/disenUIo'
-                    target='_blank'
-                    rel='noopener'
-                >
-                    <img className={styles.headerIcon} src={GithubLogo} alt='disenUIo on GitHub' />
-                </a>
-                <a
-                    className={styles.headerLink}
-                    href='https://www.npmjs.com/package/disenuio'
-                    target='_blank'
-                    rel='noopener'
-                >
-                    <img className={styles.headerIcon} src={NPMLogo} alt='disenUIo on npm' />
-                </a>
-            </div>
-        </header>
+                    <a
+                        className={styles.headerLink}
+                        href='https://www.npmjs.com/package/disenuio'
+                        target='_blank'
+                        rel='noopener'
+                    >
+                        <img className={styles.headerIcon} src={NPMLogo} alt='disenUIo on npm' />
+                    </a>
+                </Navbar.Actions>
+            </Navbar.Menu>
+        </Navbar>
     )
 }

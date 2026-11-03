@@ -37,9 +37,8 @@ export default function useMount({
 
     // Lets a parent close the component from code, still with its exit animation.
     // It is one way: once closed and unmounted, setting `open` back to true does nothing.
-    React.useEffect(() => {
-        if (!open) setIsActive(false)
-    }, [open])
+    // Adjusting state while rendering (instead of in an effect) avoids a cascading render.
+    if (!open && isActive) setIsActive(false)
 
     React.useEffect(() => {
         if (isMounted && isActive && duration && !isPaused) {

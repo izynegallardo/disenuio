@@ -1,5 +1,6 @@
 import BackgroundGrid from './components/BackgroundGrid/BackgroundGrid'
 import Hero from './components/Hero/Hero'
+import Playground from './components/Playground/Playground'
 import Samples from './components/Samples/Samples'
 import DefaultLayout from './layouts/DefaultLayout/DefaultLayout'
 
@@ -9,6 +10,7 @@ export default function App() {
             <BackgroundGrid />
             <Hero />
             <Samples />
+            <Playground />
         </DefaultLayout>
     )
 }

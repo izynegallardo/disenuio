@@ -1,0 +1,56 @@
+.playground {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5em;
+    align-items: start;
+}
+
+.controls,
+.preview {
+    border: 1px solid var(--disenuio-color-line);
+    border-radius: 1.25em;
+    background-color: var(--disenuio-color-card);
+}
+
+.controls {
+    padding: 0.5em 1.5em;
+}
+
+.output {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    min-width: 0;
+}
+
+.preview {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 240px;
+    padding: 2em;
+}
+
+/* Holds the live component, centered. Some components need the full width instead. */
+.stage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+    width: 100%;
+    min-width: 0;
+}
+
+.stageWide {
+    align-items: stretch;
+}
+
+@media (min-width: 768px) {
+    .playground {
+        grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    }
+
+    .preview {
+        min-height: 280px;
+    }
+}
