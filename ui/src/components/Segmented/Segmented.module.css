@@ -12,6 +12,7 @@
     border-radius: 0.375em;
     padding: 0.375em 0.75em;
     background: transparent;
+    font-family: var(--disenuio-font-family);
     font-size: var(--disenuio-font-size-small);
     font-weight: 600;
     color: var(--disenuio-color-ink-soft);

@@ -4,7 +4,7 @@ import { defineConfig } from 'vite'
 
 const uiSource = resolve(import.meta.dirname, '../ui/src')
 
-const devAliases = [
+const uiAliases = [
     {
         find: /^disenuio\/style\.css$/,
         replacement: resolve(uiSource, 'styles/tokens.css'),
@@ -16,10 +16,10 @@ const devAliases = [
 ]
 
 // https://vite.dev/config/
-export default defineConfig(({ command }) => ({
+export default defineConfig({
     plugins: [react()],
     resolve: {
-        alias: command === 'serve' ? devAliases : [],
+        alias: uiAliases,
         dedupe: ['react', 'react-dom'],
     },
-}))
+})

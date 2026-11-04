@@ -27,6 +27,7 @@
     background: transparent;
     border: none;
     color: inherit;
+    font-family: var(--disenuio-font-family);
     transition:
         background-color 0.2s ease,
         color 0.2s ease;
