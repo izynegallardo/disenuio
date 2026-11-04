@@ -35,10 +35,10 @@
         transform: translateY(0) scale(1.2, 0.75) rotate(0deg);
     }
     25% {
-        transform: translateY(-60px) scale(0.9, 1.15) rotate(0deg);
+        transform: translateY(-45px) scale(0.9, 1.15) rotate(0deg);
     }
     45% {
-        transform: translateY(-60px) scale(1, 1) rotate(360deg);
+        transform: translateY(-45px) scale(1, 1) rotate(360deg);
     }
     53% {
         transform: translateY(0) scale(1.2, 0.75) rotate(360deg);

@@ -1,4 +1,4 @@
-import Logo from '../../assets/react.png'
+import Logo from '../../assets/disenuio.svg'
 import styles from './Mascot.module.css'
 
 export default function Mascot() {
