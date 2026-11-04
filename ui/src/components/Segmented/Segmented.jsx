@@ -65,6 +65,8 @@ export default function Segmented({
                 const optionClass = classNames(styles.option, isSelected && styles.isSelected)
 
                 return (
+                    // A radio group of buttons with a roving tab stop, styled as one control.
+                    // biome-ignore lint/a11y/useSemanticElements: ARIA radio group pattern on buttons
                     <button
                         key={String(item.value)}
                         ref={(node) => {

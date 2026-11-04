@@ -1,0 +1,199 @@
+/*
+ * Mobile first. Below 768px the menu is a panel under the bar, opened by the toggle.
+ * From 768px the toggle is gone and the menu sits in the bar.
+ *
+ * Customization hooks. Optional:
+ *
+ *   --disenuio-navigation-max-width   width of the content, centered (default 1200px)
+ *   --disenuio-navigation-z-index     stacking order (default 100)
+ */
+.navigation {
+    position: relative;
+    z-index: var(--disenuio-navigation-z-index, 100);
+    border-bottom: 1px solid var(--disenuio-color-border);
+    background-color: color-mix(in oklab, var(--disenuio-color-surface) 70%, transparent);
+    backdrop-filter: blur(12px);
+}
+
+.sticky {
+    position: sticky;
+    top: 0;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1em;
+    margin: 0 auto;
+    padding: 0 1.5em;
+    min-height: 3.5em;
+    max-width: var(--disenuio-navigation-max-width, 1200px);
+}
+
+/* Brand */
+.brand {
+    border-radius: 0.5em;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--disenuio-color-ink);
+    text-decoration: none;
+    outline: 2px solid transparent;
+}
+
+.brand:focus-visible {
+    box-shadow: 0 0 0 2px var(--disenuio-color-focus-ring);
+}
+
+/* Toggle */
+.toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 -0.5em 0 auto;
+    border: none;
+    border-radius: 0.5em;
+    padding: 0.5em;
+    background-color: transparent;
+    color: var(--disenuio-color-ink);
+    cursor: pointer;
+    outline: 2px solid transparent;
+    transition: background-color var(--disenuio-transition);
+}
+
+.toggle > svg {
+    width: 1.5em;
+    height: 1.5em;
+}
+
+.toggle:hover {
+    background-color: var(--disenuio-color-surface);
+}
+
+.toggle:focus-visible {
+    background-color: var(--disenuio-color-surface);
+    box-shadow: 0 0 0 2px var(--disenuio-color-focus-ring);
+}
+
+/* Menu: a panel under the bar, closed until the toggle opens it */
+.menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    display: none;
+    flex-direction: column;
+    gap: 0.5em;
+    border-bottom: 1px solid var(--disenuio-color-border);
+    padding: 0.75em 1.5em 1em;
+    background-color: color-mix(in oklab, var(--disenuio-color-surface) 96%, transparent);
+    box-shadow: 0 12px 16px -12px rgba(15, 31, 61, 0.2);
+}
+
+.isOpen .menu {
+    display: flex;
+}
+
+.links {
+    width: 100%;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25em;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/*
+ * Links. Hover lifts the link onto a white pill. Keyboard focus and the current page add
+ * the brand color and a thin ring on top of that.
+ */
+.link {
+    display: block;
+    border-radius: 0.5em;
+    padding: 0.75em 1em;
+    font-weight: 500;
+    color: var(--disenuio-color-ink-soft);
+    text-decoration: none;
+    outline: 2px solid transparent;
+    transition:
+        background-color var(--disenuio-transition),
+        color var(--disenuio-transition),
+        box-shadow var(--disenuio-transition);
+}
+
+.link:hover {
+    background-color: var(--disenuio-color-surface);
+    box-shadow: 0 1px 2px 0 rgba(15, 31, 61, 0.08);
+    color: var(--disenuio-color-primary);
+}
+
+.link:focus-visible,
+.link[aria-current="page"] {
+    background-color: var(--disenuio-color-surface);
+    box-shadow:
+        0 0 0 1px color-mix(in oklab, var(--disenuio-color-primary) 25%, transparent),
+        0 1px 3px 0 rgba(15, 31, 61, 0.1);
+    color: var(--disenuio-color-primary);
+}
+
+/* Actions: icon links, buttons... */
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 0.25em;
+    margin-top: 0.25em;
+    border-top: 1px solid var(--disenuio-color-border);
+    padding-top: 0.75em;
+}
+
+@media (min-width: 768px) {
+    .toggle {
+        display: none;
+    }
+
+    .menu {
+        position: static;
+        flex: 1;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 0.5em;
+        border: none;
+        padding: 0;
+        background: none;
+        box-shadow: none;
+    }
+
+    .links {
+        width: auto;
+    }
+
+    .list {
+        flex-direction: row;
+        gap: 0.25em;
+    }
+
+    .link {
+        border-radius: 9999px;
+        padding: 0.375em 1em;
+    }
+
+    .actions {
+        margin: 0 0 0 0.5em;
+        border-top: none;
+        border-left: 1px solid var(--disenuio-color-border);
+        padding: 0 0 0 1em;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .toggle,
+    .link {
+        transition: none;
+    }
+}

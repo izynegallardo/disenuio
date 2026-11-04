@@ -157,9 +157,9 @@ describe('Toggle', () => {
         it('sets the track color through a custom property', () => {
             render(<Toggle label='Notifications' color='#059669' />)
 
-            expect(screen.getByRole('switch').style.getPropertyValue('--disenuio-toggle-color')).toBe(
-                '#059669',
-            )
+            expect(
+                screen.getByRole('switch').style.getPropertyValue('--disenuio-toggle-color'),
+            ).toBe('#059669')
         })
 
         it('keeps a consumer style next to the color', () => {

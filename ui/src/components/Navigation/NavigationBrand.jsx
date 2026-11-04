@@ -1,7 +1,7 @@
 import { classNames } from '../../utils/classNames'
-import styles from './Navbar.module.css'
+import styles from './Navigation.module.css'
 
-export default function NavbarBrand({ as: Tag = 'a', className, children, ...rest }) {
+export default function NavigationBrand({ as: Tag = 'a', className, children, ...rest }) {
     return (
         <Tag {...rest} className={classNames(styles.brand, className)}>
             {children}

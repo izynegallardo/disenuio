@@ -1,8 +1,8 @@
 import { classNames } from '../../utils/classNames'
-import { useNavbar } from './NavbarContext'
-import styles from './Navbar.module.css'
+import styles from './Navigation.module.css'
+import { useNavigation } from './NavigationContext'
 
-export default function NavbarLink({
+export default function NavigationLink({
     as: Tag = 'a', // pass a router link component to navigate without a page load
     current = false, // the link of the page or section the user is on
     className,
@@ -10,7 +10,7 @@ export default function NavbarLink({
     children,
     ...rest
 }) {
-    const { closeMenu } = useNavbar()
+    const { closeMenu } = useNavigation()
 
     // Following a link closes the menu, otherwise it would stay over the page.
     function handleClick(event) {

@@ -9,8 +9,8 @@ import {
 } from '../../utils/controlValues'
 import Section from '../Section/Section'
 import { DEFAULT_PLAYGROUND, PLAYGROUNDS } from './configs'
-import PlaygroundControl from './PlaygroundControl/PlaygroundControl'
 import styles from './Playground.module.css'
+import PlaygroundControl from './PlaygroundControl/PlaygroundControl'
 
 const NAMES = PLAYGROUNDS.map((playground) => playground.name)
 
@@ -45,8 +45,12 @@ export default function Playground() {
             blurb='Pick a component, tweak its props, copy the JSX.'
         >
             <div className={styles.playground}>
-                <div className={styles.controls} role='group' aria-label={`${name} props`}>
-                    <PlaygroundControl control={COMPONENT_CONTROL} value={name} onChange={setName} />
+                <fieldset className={styles.controls} aria-label={`${name} props`}>
+                    <PlaygroundControl
+                        control={COMPONENT_CONTROL}
+                        value={name}
+                        onChange={setName}
+                    />
                     {controls.map((control) => (
                         <PlaygroundControl
                             key={`${name}-${control.name}`}
@@ -56,7 +60,7 @@ export default function Playground() {
                             onChange={(value) => setValue(control.name, value)}
                         />
                     ))}
-                </div>
+                </fieldset>
                 <div className={styles.output}>
                     <div className={styles.preview}>
                         <div className={stageClass}>

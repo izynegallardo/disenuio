@@ -51,6 +51,8 @@ export default function CodeBlock({ label, code, resetTime = 1400, className, ..
                     {copied && 'Copied to clipboard'}
                 </span>
             </div>
+            {/* Scrollable regions must be reachable by keyboard, or long code cannot be read. */}
+            {/* biome-ignore lint/a11y/noNoninteractiveTabindex: scrollable code must be focusable */}
             <section className={styles.codePanel} tabIndex={0} aria-label={`${name} code`}>
                 <pre className={styles.pre}>
                     <code>{code}</code>

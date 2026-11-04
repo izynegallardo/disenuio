@@ -8,7 +8,9 @@ import styles from './Input.module.css'
 function ControlledInput() {
     const [value, setValue] = React.useState('')
 
-    return <Input aria-label='Name' value={value} onChange={(event) => setValue(event.target.value)} />
+    return (
+        <Input aria-label='Name' value={value} onChange={(event) => setValue(event.target.value)} />
+    )
 }
 
 describe('Input', () => {

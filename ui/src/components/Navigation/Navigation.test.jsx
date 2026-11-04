@@ -1,32 +1,32 @@
 import { act, render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import Navbar from './Navbar'
-import styles from './Navbar.module.css'
+import Navigation from './Navigation'
+import styles from './Navigation.module.css'
 
 function Example(props) {
     return (
-        <Navbar {...props}>
-            <Navbar.Brand href='/'>disenUIo</Navbar.Brand>
-            <Navbar.Toggle />
-            <Navbar.Menu>
-                <Navbar.Links label='Main'>
-                    <Navbar.Link href='#samples'>Samples</Navbar.Link>
-                    <Navbar.Link href='#docs' current>
+        <Navigation {...props}>
+            <Navigation.Brand href='/'>disenUIo</Navigation.Brand>
+            <Navigation.Burger />
+            <Navigation.Menu>
+                <Navigation.Links label='Main'>
+                    <Navigation.Link href='#samples'>Samples</Navigation.Link>
+                    <Navigation.Link href='#docs' current>
                         Docs
-                    </Navbar.Link>
-                </Navbar.Links>
-                <Navbar.Actions>
+                    </Navigation.Link>
+                </Navigation.Links>
+                <Navigation.Actions>
                     <a href='https://github.com'>GitHub</a>
-                </Navbar.Actions>
-            </Navbar.Menu>
-        </Navbar>
+                </Navigation.Actions>
+            </Navigation.Menu>
+        </Navigation>
     )
 }
 
 const getToggle = () => screen.getByRole('button', { name: 'Menu' })
 
-describe('Navbar', () => {
+describe('Navigation', () => {
     describe('structure', () => {
         it('is a banner with a labelled navigation of links', () => {
             render(<Example />)
@@ -70,7 +70,7 @@ describe('Navbar', () => {
         it('is sticky unless told otherwise', () => {
             const { rerender } = render(<Example />)
 
-            expect(screen.getByRole('banner')).toHaveClass(styles.navbar, styles.sticky)
+            expect(screen.getByRole('banner')).toHaveClass(styles.navigation, styles.sticky)
 
             rerender(<Example sticky={false} />)
 
@@ -80,33 +80,33 @@ describe('Navbar', () => {
         it('merges a custom className and forwards attributes', () => {
             render(<Example className='customClass' id='site-header' />)
 
-            expect(screen.getByRole('banner')).toHaveClass(styles.navbar, 'customClass')
+            expect(screen.getByRole('banner')).toHaveClass(styles.navigation, 'customClass')
             expect(screen.getByRole('banner')).toHaveAttribute('id', 'site-header')
         })
 
         it('lets links and the brand render as another element', () => {
             render(
-                <Navbar>
-                    <Navbar.Brand as='div'>Logo</Navbar.Brand>
-                    <Navbar.Toggle />
-                    <Navbar.Menu>
-                        <Navbar.Links>
-                            <Navbar.Link as='button' type='button'>
+                <Navigation>
+                    <Navigation.Brand as='div'>Logo</Navigation.Brand>
+                    <Navigation.Burger />
+                    <Navigation.Menu>
+                        <Navigation.Links>
+                            <Navigation.Link as='button' type='button'>
                                 Pricing
-                            </Navbar.Link>
-                        </Navbar.Links>
-                    </Navbar.Menu>
-                </Navbar>,
+                            </Navigation.Link>
+                        </Navigation.Links>
+                    </Navigation.Menu>
+                </Navigation>,
             )
 
             expect(screen.getByText('Logo').tagName).toBe('DIV')
             expect(screen.getByRole('button', { name: 'Pricing' })).toBeInTheDocument()
         })
 
-        it('throws when a part is used outside a Navbar', () => {
+        it('throws when a part is used outside a Navigation', () => {
             const error = vi.spyOn(console, 'error').mockImplementation(() => {})
 
-            expect(() => render(<Navbar.Toggle />)).toThrow('inside <Navbar>')
+            expect(() => render(<Navigation.Burger />)).toThrow('inside <Navigation>')
 
             error.mockRestore()
         })
@@ -154,10 +154,10 @@ describe('Navbar', () => {
             const user = userEvent.setup()
             const onClick = vi.fn()
             render(
-                <Navbar>
-                    <Navbar.Toggle label='Open navigation' onClick={onClick} />
-                    <Navbar.Menu />
-                </Navbar>,
+                <Navigation>
+                    <Navigation.Burger label='Open navigation' onClick={onClick} />
+                    <Navigation.Menu />
+                </Navigation>,
             )
 
             await user.click(screen.getByRole('button', { name: 'Open navigation' }))
@@ -183,20 +183,37 @@ describe('Navbar', () => {
             expect(getToggle()).toHaveFocus()
         })
 
+        it('closes with Escape even when focus is outside, without moving it', async () => {
+            const user = userEvent.setup()
+            render(
+                <>
+                    <Example />
+                    <button type='button'>Outside</button>
+                </>,
+            )
+
+            await user.click(getToggle())
+            screen.getByRole('button', { name: 'Outside' }).focus()
+            await user.keyboard('{Escape}')
+
+            expect(getToggle()).toHaveAttribute('aria-expanded', 'false')
+            expect(screen.getByRole('button', { name: 'Outside' })).toHaveFocus()
+        })
+
         it('closes when a link is followed, and still calls its onClick', async () => {
             const user = userEvent.setup()
             const onClick = vi.fn()
             render(
-                <Navbar>
-                    <Navbar.Toggle />
-                    <Navbar.Menu>
-                        <Navbar.Links>
-                            <Navbar.Link href='#samples' onClick={onClick}>
+                <Navigation>
+                    <Navigation.Burger />
+                    <Navigation.Menu>
+                        <Navigation.Links>
+                            <Navigation.Link href='#samples' onClick={onClick}>
                                 Samples
-                            </Navbar.Link>
-                        </Navbar.Links>
-                    </Navbar.Menu>
-                </Navbar>,
+                            </Navigation.Link>
+                        </Navigation.Links>
+                    </Navigation.Menu>
+                </Navigation>,
             )
 
             await user.click(getToggle())
@@ -247,7 +264,9 @@ describe('Navbar', () => {
                 render(<Example />)
 
                 await user.click(getToggle())
-                act(() => listeners.forEach((listener) => listener({ matches: true })))
+                act(() => {
+                    for (const listener of listeners) listener({ matches: true })
+                })
 
                 expect(getToggle()).toHaveAttribute('aria-expanded', 'false')
             })

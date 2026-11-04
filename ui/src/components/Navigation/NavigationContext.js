@@ -1,15 +1,16 @@
 import React from 'react'
 
-const NavbarContext = React.createContext(null)
+const NavigationContext = React.createContext(null)
 
-export default NavbarContext
+export default NavigationContext
 
-// The parts of a Navbar share its open state, so they only work inside one.
-export function useNavbar() {
-    const context = React.useContext(NavbarContext)
+export function useNavigation() {
+    const context = React.useContext(NavigationContext)
 
     if (!context) {
-        throw new Error('Navbar.Toggle, Navbar.Menu and Navbar.Link must be used inside <Navbar>.')
+        throw new Error(
+            'Navigation.Burger, Navigation.Menu and Navigation.Link must be used inside <Navigation>.',
+        )
     }
 
     return context

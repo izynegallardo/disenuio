@@ -11,13 +11,7 @@ function DropdownPreview({ props, values }) {
     const selected = options.includes(value) ? value : null
 
     return (
-        <Dropdown
-            {...props}
-            label='Fruit'
-            options={options}
-            value={selected}
-            onChange={setValue}
-        />
+        <Dropdown {...props} label='Fruit' options={options} value={selected} onChange={setValue} />
     )
 }
 

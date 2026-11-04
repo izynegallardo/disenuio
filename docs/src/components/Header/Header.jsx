@@ -1,4 +1,4 @@
-import { Navbar } from 'disenuio'
+import { Navigation } from 'disenuio'
 import GithubLogo from '../../assets/github.svg'
 import NPMLogo from '../../assets/npm.svg'
 import styles from './Header.module.css'
@@ -15,20 +15,20 @@ const NAV_LINKS = [
 
 export default function Header() {
     return (
-        <Navbar className={styles.header}>
-            <Navbar.Brand href='/'>
+        <Navigation className={styles.header}>
+            <Navigation.Brand href='/'>
                 <span className={styles.brandText}>disenUIo</span>
-            </Navbar.Brand>
-            <Navbar.Toggle />
-            <Navbar.Menu>
-                <Navbar.Links label='Main'>
+            </Navigation.Brand>
+            <Navigation.Burger />
+            <Navigation.Menu>
+                <Navigation.Links label='Main'>
                     {NAV_LINKS.map(({ label, href }) => (
-                        <Navbar.Link key={href} href={href}>
+                        <Navigation.Link key={href} href={href}>
                             {label}
-                        </Navbar.Link>
+                        </Navigation.Link>
                     ))}
-                </Navbar.Links>
-                <Navbar.Actions>
+                </Navigation.Links>
+                <Navigation.Actions>
                     <a
                         className={styles.headerLink}
                         href='https://github.com/izynegallardo/disenUIo'
@@ -49,8 +49,8 @@ export default function Header() {
                     >
                         <img className={styles.headerIcon} src={NPMLogo} alt='disenUIo on npm' />
                     </a>
-                </Navbar.Actions>
-            </Navbar.Menu>
-        </Navbar>
+                </Navigation.Actions>
+            </Navigation.Menu>
+        </Navigation>
     )
 }

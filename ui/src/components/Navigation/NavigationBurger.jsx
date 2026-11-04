@@ -1,11 +1,11 @@
 import { classNames } from '../../utils/classNames'
 import { CrossIcon, MenuIcon } from '../Icons/Icons'
-import { useNavbar } from './NavbarContext'
-import styles from './Navbar.module.css'
+import styles from './Navigation.module.css'
+import { useNavigation } from './NavigationContext'
 
 // The button that opens and closes the menu on small screens. Hidden on wide screens.
-export default function NavbarToggle({ label = 'Menu', className, onClick, ...rest }) {
-    const { isOpen, menuId, toggleRef, toggleMenu } = useNavbar()
+export default function NavigationBurger({ label = 'Menu', className, onClick, ...rest }) {
+    const { isOpen, menuId, toggleRef, toggleMenu } = useNavigation()
 
     function handleClick(event) {
         onClick?.(event)

@@ -15,7 +15,15 @@ function Harness({ initial = null, onChange, ...rest }) {
         onChange?.(next)
     }
 
-    return <Dropdown label='Status' options={OPTIONS} value={value} onChange={handleChange} {...rest} />
+    return (
+        <Dropdown
+            label='Status'
+            options={OPTIONS}
+            value={value}
+            onChange={handleChange}
+            {...rest}
+        />
+    )
 }
 
 const getTrigger = () => screen.getByRole('combobox', { name: 'Status' })
@@ -345,7 +353,10 @@ describe('Dropdown', () => {
             )
 
             expect(container.querySelector('input[type="hidden"]')).toHaveValue('success')
-            expect(container.querySelector('input[type="hidden"]')).toHaveAttribute('name', 'status')
+            expect(container.querySelector('input[type="hidden"]')).toHaveAttribute(
+                'name',
+                'status',
+            )
         })
 
         it('renders no hidden input without a name', () => {

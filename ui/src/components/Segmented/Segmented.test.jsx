@@ -152,12 +152,18 @@ describe('Segmented', () => {
             const user = userEvent.setup()
             const onChange = vi.fn()
             render(
-                <Segmented value='md' options={OPTIONS} onChange={onChange} disabled label='Size' />,
+                <Segmented
+                    value='md'
+                    options={OPTIONS}
+                    onChange={onChange}
+                    disabled
+                    label='Size'
+                />,
             )
 
             await user.click(screen.getByRole('radio', { name: 'lg' }))
 
-            screen.getAllByRole('radio').forEach((radio) => expect(radio).toBeDisabled())
+            for (const radio of screen.getAllByRole('radio')) expect(radio).toBeDisabled()
             expect(onChange).not.toHaveBeenCalled()
         })
     })

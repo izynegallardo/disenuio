@@ -9,7 +9,12 @@ export default {
     name: 'Input',
     controls: [
         { name: 'label', label: 'Label', type: 'text', defaultValue: 'Email' },
-        { name: 'placeholder', label: 'Placeholder', type: 'text', defaultValue: 'you@example.com' },
+        {
+            name: 'placeholder',
+            label: 'Placeholder',
+            type: 'text',
+            defaultValue: 'you@example.com',
+        },
         {
             name: 'type',
             label: 'Type',

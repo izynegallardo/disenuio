@@ -41,12 +41,12 @@
     box-shadow: 0 0 0 4px color-mix(in oklab, var(--disenuio-color-primary) 15%, transparent);
 }
 
-.trigger[aria-invalid='true'] {
+.trigger[aria-invalid="true"] {
     border-color: var(--disenuio-color-danger);
 }
 
-.trigger[aria-invalid='true']:focus-visible,
-.isOpen .trigger[aria-invalid='true'] {
+.trigger[aria-invalid="true"]:focus-visible,
+.isOpen .trigger[aria-invalid="true"] {
     box-shadow: 0 0 0 4px color-mix(in oklab, var(--disenuio-color-danger) 15%, transparent);
 }
 

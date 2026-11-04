@@ -226,7 +226,7 @@ export default function Dropdown({
                 <ChevronDownIcon className={styles.chevron} />
             </button>
             {isOpen && (
-                <ul
+                <div
                     id={listId}
                     role='listbox'
                     aria-label={label}
@@ -242,13 +242,17 @@ export default function Dropdown({
                         )
 
                         return (
-                            <li
+                            // The combobox button handles the keys and points at the option with
+                            // aria-activedescendant, so options are focusable but not tab stops.
+                            // biome-ignore lint/a11y/useKeyWithClickEvents: keys are handled by the combobox
+                            <div
                                 key={String(item.value)}
                                 ref={(node) => {
                                     optionRefs.current[index] = node
                                 }}
                                 id={optionId(index)}
                                 role='option'
+                                tabIndex={-1}
                                 aria-selected={isSelected}
                                 className={optionClass}
                                 // Keeps focus on the button, so the list does not close on press.
@@ -258,10 +262,10 @@ export default function Dropdown({
                             >
                                 <span>{item.label}</span>
                                 {isSelected && <CheckIcon className={styles.check} />}
-                            </li>
+                            </div>
                         )
                     })}
-                </ul>
+                </div>
             )}
             {name && <input type='hidden' name={name} value={currentValue ?? ''} />}
         </div>

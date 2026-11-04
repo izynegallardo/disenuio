@@ -13,6 +13,9 @@
 }
 
 .controls {
+    /* It is a fieldset: drop the default margin and the min-content width. */
+    margin: 0;
+    min-width: 0;
     padding: 0.5em 1.5em;
 }
 
@@ -52,5 +55,10 @@
 
     .preview {
         min-height: 280px;
+    }
+
+    .controls,
+    .output {
+        min-height: 514px;
     }
 }
