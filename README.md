@@ -10,14 +10,16 @@
 </p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/disenuio"><img alt="npm" src="https://img.shields.io/npm/v/disenuio?logo=npm&logoColor=C53635" /></a>
+  <a href="https://www.npmjs.com/package/disenuio" style="text-decoration: none;">
+    <img alt="npm version" src="https://img.shields.io/npm/v/disenuio?color=C53635&logo=npm&logoColor=C53635" />
+  </a>
   <img alt="React" src="https://img.shields.io/badge/React-19.0.0-61DAFB?logo=react" />
-  <img alt="License" src="https://img.shields.io/npm/l/disenuio" />
+  <img alt="License" src="https://img.shields.io/npm/l/disenuio?label=license" />
 </p>
 
 <br />
 
-disenUIo is a React component library built around reusability and performance. It ships accessible, themeable components such as `Button`,
+disenUIo is a React component library built around reusability and performance. accessible, themeable components such as `Button`,
 `Dropdown`, `Toast` and `Navigation`, styled with CSS Modules and plain CSS custom properties, with no
 runtime styling dependency.
 

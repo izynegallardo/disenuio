@@ -30,7 +30,12 @@
     "keywords": [
         "react",
         "components",
-        "ui"
+        "ui",
+        "custom-component",
+        "react-component-library",
+        "react-components",
+        "react-library",
+        "disenuio"
     ],
     "scripts": {
         "dev": "vite build --watch",

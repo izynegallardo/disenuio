@@ -2,8 +2,9 @@
 
 Reusable, performant React components.
 
-[![npm version](https://img.shields.io/npm/v/disenuio?logo=npm&logoColor=C53635)](https://www.npmjs.com/package/disenuio)
-[![license](https://img.shields.io/npm/l/disenuio)](../LICENSE)
+[![npm version](https://img.shields.io/npm/v/disenuio?color=C53635&logo=npm&logoColor=C53635)](https://www.npmjs.com/package/disenuio)
+![react](https://img.shields.io/badge/React-19.0.0-61DAFB?logo=react)
+[![license](https://img.shields.io/npm/l/disenuio?label=license)](../LICENSE)
 
 > Early release (0.x). The API may change between minor versions.
 
