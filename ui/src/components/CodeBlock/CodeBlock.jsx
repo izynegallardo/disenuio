@@ -4,6 +4,22 @@ import { classNames } from '../../utils/classNames'
 import { CheckIcon, CopyIcon } from '../Icons/Icons'
 import styles from './CodeBlock.module.css'
 
+/**
+ * A code panel with a copy button.
+ *
+ * @param {Object} props
+ * @param {string} props.code The text to show and copy.
+ * @param {string} [props.label='terminal'] Name shown in the header, such as a file name or language.
+ * @param {number} [props.resetTime=1400] Milliseconds the "Copied" state stays after copying.
+ * @param {string} [props.className]
+ * @param {Object} [props.rest] Any other prop is passed to the root `<div>`.
+ * @returns {React.JSX.Element}
+ *
+ * @example
+ * ```jsx
+ * <CodeBlock label='terminal' code='npm install disenuio' />
+ * ```
+ */
 export default function CodeBlock({ label, code, resetTime = 1400, className, ...rest }) {
     const [copied, setCopied] = React.useState(false)
     const resetTimerRef = React.useRef(null)

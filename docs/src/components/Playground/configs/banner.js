@@ -1,8 +1,4 @@
-import { Banner } from 'disenuio'
-
-function BannerPreview({ props }) {
-    return <Banner {...props} />
-}
+import BannerPreview from '../previews/BannerPreview'
 
 export default {
     name: 'Banner',

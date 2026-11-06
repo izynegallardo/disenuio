@@ -1,8 +1,4 @@
-import { Badge } from 'disenuio'
-
-function BadgePreview({ props, content }) {
-    return <Badge {...props}>{content}</Badge>
-}
+import BadgePreview from '../previews/BadgePreview'
 
 export default {
     name: 'Badge',
@@ -28,7 +24,7 @@ export default {
             options: ['', 'gray', 'red', 'yellow', 'green', 'blue', 'indigo', 'purple', 'pink'],
             defaultValue: '',
         },
-        { name: 'label', label: 'Label', type: 'text', defaultValue: 'New', target: 'children' },
+        { name: 'label', label: 'Label', type: 'text', defaultValue: 'Status', target: 'children' },
     ],
     Preview: BadgePreview,
 }

@@ -1,9 +1,4 @@
-import { Card } from 'disenuio'
-import { uploadIcon } from '../../Icons/Icons'
-
-function CardPreview({ props, values }) {
-    return <Card {...props} icon={values.showIcon ? uploadIcon : undefined} />
-}
+import CardPreview from '../previews/CardPreview'
 
 export default {
     name: 'Card',

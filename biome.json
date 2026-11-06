@@ -15,5 +15,11 @@
             "semicolons": "asNeeded"
         }
     },
-    "vcs": { "enabled": true, "clientKind": "git", "useIgnoreFile": true }
+    "vcs": { "enabled": true, "clientKind": "git", "useIgnoreFile": true },
+    "overrides": [
+        {
+            "includes": ["**/assets/**/*.svg"],
+            "linter": { "rules": { "a11y": { "noSvgWithoutTitle": "off" } } }
+        }
+    ]
 }

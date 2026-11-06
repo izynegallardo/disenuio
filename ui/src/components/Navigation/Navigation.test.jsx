@@ -26,18 +26,19 @@ function Example(props) {
 
 const getToggle = () => screen.getByRole('button', { name: 'Menu' })
 
+// The menu is display: none until the burger opens it, and jsdom ignores the wide-screen media
+// query that would show it. Structure tests that do not open the menu look inside it with this.
+const getInClosedMenu = (role, name) => screen.getByRole(role, { name, hidden: true })
+
 describe('Navigation', () => {
     describe('structure', () => {
         it('is a banner with a labelled navigation of links', () => {
             render(<Example />)
 
             expect(screen.getByRole('banner')).toBeInTheDocument()
-            expect(screen.getByRole('navigation', { name: 'Main' })).toBeInTheDocument()
-            expect(screen.getAllByRole('listitem')).toHaveLength(2)
-            expect(screen.getByRole('link', { name: 'Samples' })).toHaveAttribute(
-                'href',
-                '#samples',
-            )
+            expect(getInClosedMenu('navigation', 'Main')).toBeInTheDocument()
+            expect(screen.getAllByRole('listitem', { hidden: true })).toHaveLength(2)
+            expect(getInClosedMenu('link', 'Samples')).toHaveAttribute('href', '#samples')
         })
 
         it('renders the brand as a link', () => {
@@ -49,13 +50,8 @@ describe('Navigation', () => {
         it('marks the current link for assistive technology', () => {
             render(<Example />)
 
-            expect(screen.getByRole('link', { name: 'Docs' })).toHaveAttribute(
-                'aria-current',
-                'page',
-            )
-            expect(screen.getByRole('link', { name: 'Samples' })).not.toHaveAttribute(
-                'aria-current',
-            )
+            expect(getInClosedMenu('link', 'Docs')).toHaveAttribute('aria-current', 'page')
+            expect(getInClosedMenu('link', 'Samples')).not.toHaveAttribute('aria-current')
         })
 
         it('keeps the actions inside the menu', () => {
@@ -63,8 +59,8 @@ describe('Navigation', () => {
 
             const menu = document.getElementById(getToggle().getAttribute('aria-controls'))
 
-            expect(menu).toContainElement(screen.getByRole('link', { name: 'GitHub' }))
-            expect(menu).toContainElement(screen.getByRole('navigation', { name: 'Main' }))
+            expect(menu).toContainElement(getInClosedMenu('link', 'GitHub'))
+            expect(menu).toContainElement(getInClosedMenu('navigation', 'Main'))
         })
 
         it('is sticky unless told otherwise', () => {
@@ -100,7 +96,7 @@ describe('Navigation', () => {
             )
 
             expect(screen.getByText('Logo').tagName).toBe('DIV')
-            expect(screen.getByRole('button', { name: 'Pricing' })).toBeInTheDocument()
+            expect(getInClosedMenu('button', 'Pricing')).toBeInTheDocument()
         })
 
         it('throws when a part is used outside a Navigation', () => {
@@ -136,6 +132,19 @@ describe('Navigation', () => {
 
             expect(getToggle()).toHaveAttribute('aria-expanded', 'false')
             expect(screen.getByRole('banner')).not.toHaveClass(styles.isOpen)
+        })
+
+        it('hides the menu from assistive technology until it is opened', async () => {
+            const user = userEvent.setup()
+            render(<Example />)
+
+            expect(screen.queryByRole('navigation', { name: 'Main' })).not.toBeInTheDocument()
+            expect(screen.queryByRole('link', { name: 'Docs' })).not.toBeInTheDocument()
+
+            await user.click(getToggle())
+
+            expect(screen.getByRole('navigation', { name: 'Main' })).toBeInTheDocument()
+            expect(screen.getByRole('link', { name: 'Docs' })).toBeInTheDocument()
         })
 
         it('opens from the keyboard', async () => {

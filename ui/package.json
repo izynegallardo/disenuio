@@ -1,7 +1,6 @@
 {
     "name": "disenuio",
-    "private": true,
-    "version": "0.0.0",
+    "version": "0.1.0",
     "description": "Reusable, performant React components",
     "license": "MIT",
     "author": "Izyne Gallardo",
@@ -54,11 +53,20 @@
         "oxlint": "^1.88.0",
         "react": "^19.3.1",
         "react-dom": "^19.3.1",
+        "rollup": "^4.67.5",
+        "rollup-plugin-dts": "^6.5.1",
+        "typescript": "^5.9.3",
         "vite": "^8.3.4",
         "vitest": "^4.1.12"
     },
     "peerDependencies": {
+        "@types/react": "^19.0.0",
         "react": "^19.0.0",
         "react-dom": "^19.0.0"
+    },
+    "peerDependenciesMeta": {
+        "@types/react": {
+            "optional": true
+        }
     }
 }

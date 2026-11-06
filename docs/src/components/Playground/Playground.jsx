@@ -42,7 +42,7 @@ export default function Playground() {
         <Section
             id='playground'
             title='Playground'
-            blurb='Pick a component, tweak its props, copy the JSX.'
+            blurb='Pick a component, tweak its props, copy the code.'
         >
             <div className={styles.playground}>
                 <fieldset className={styles.controls} aria-label={`${name} props`}>

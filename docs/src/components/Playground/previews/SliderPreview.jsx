@@ -1,7 +1,7 @@
 import { Slider } from 'disenuio'
 import React from 'react'
 
-function SliderPreview({ props }) {
+export default function SliderPreview({ props }) {
     const [value, setValue] = React.useState(50)
 
     // The typed range can be invalid (max below min, step 0), so the preview stays usable.
@@ -23,20 +23,4 @@ function SliderPreview({ props }) {
             <p>Value: {clamped}</p>
         </>
     )
-}
-
-export default {
-    name: 'Slider',
-    controls: [
-        { name: 'min', label: 'Min', type: 'number', defaultValue: 0 },
-        { name: 'max', label: 'Max', type: 'number', defaultValue: 100 },
-        { name: 'step', label: 'Step', type: 'number', defaultValue: 1 },
-        { name: 'disabled', label: 'Disabled', type: 'boolean', defaultValue: false },
-    ],
-    extraCode: () => [
-        "aria-label='Volume'",
-        'value={value}',
-        'onChange={(event) => setValue(Number(event.target.value))}',
-    ],
-    Preview: SliderPreview,
 }

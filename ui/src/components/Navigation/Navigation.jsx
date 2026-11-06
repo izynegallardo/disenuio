@@ -12,26 +12,41 @@ import NavigationMenu from './NavigationMenu'
 // Wide screens show the menu inline. Keep in step with the media query in Navigation.module.css.
 const WIDE_SCREEN_QUERY = '(min-width: 768px)'
 
+// The burger is a part of this component, not a separate one: it only makes sense next to
+// the menu it opens, and it shares the open state through context.
+//
+// Customization hooks. Optional:
+//   --disenuio-navigation-max-width   width of the content, centered (default 1200px)
+//   --disenuio-navigation-z-index     stacking order while sticky (default 100)
+
 /**
- * A responsive site header. On small screens the menu collapses behind a toggle button.
+ * A responsive site header whose menu collapses behind a burger button on small screens. Build it
+ * with `Navigation.Brand`, `Navigation.Burger`, `Navigation.Menu`, `Navigation.Links`,
+ * `Navigation.Link` and `Navigation.Actions`.
  *
+ * @param {Object} props
+ * @param {boolean} [props.sticky=true] Keeps the header at the top while scrolling.
+ * @param {string} [props.className]
+ * @param {React.ReactNode} [props.children]
+ * @param {Object} [props.rest] Any other prop is passed to the root `<header>`.
+ * @returns {React.JSX.Element}
+ *
+ * @example
+ * ```jsx
  * <Navigation>
- *   <Navigation.Brand href='/'>disenUIo</Navigation.Brand>
- *   <Navigation.Burger />
- *   <Navigation.Menu>
- *     <Navigation.Links label='Main'>
- *       <Navigation.Link href='#samples'>Samples</Navigation.Link>
- *     </Navigation.Links>
- *     <Navigation.Actions>...icon links...</Navigation.Actions>
- *   </Navigation.Menu>
+ *     <Navigation.Brand href='/'>disenUIo</Navigation.Brand>
+ *     <Navigation.Burger />
+ *     <Navigation.Menu>
+ *         <Navigation.Links label='Main'>
+ *             <Navigation.Link href='#samples' current>Samples</Navigation.Link>
+ *             <Navigation.Link href='#docs'>Docs</Navigation.Link>
+ *         </Navigation.Links>
+ *         <Navigation.Actions>
+ *             <a href='https://github.com/izynegallardo/disenuio'>GitHub</a>
+ *         </Navigation.Actions>
+ *     </Navigation.Menu>
  * </Navigation>
- *
- * The burger is a part of this component, not a separate one: it only makes sense next to
- * the menu it opens, and it shares the open state through context.
- *
- * Customization hooks. Optional:
- *   --disenuio-navigation-max-width   width of the content, centered (default 1200px)
- *   --disenuio-navigation-z-index     stacking order while sticky (default 100)
+ * ```
  */
 function Navigation({ sticky = true, className, children, ...rest }) {
     const menuId = React.useId()

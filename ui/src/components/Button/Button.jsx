@@ -15,13 +15,36 @@ function isThenable(value) {
     return typeof value?.then === 'function'
 }
 
+/**
+ * A button with loading, success and error states for async actions.
+ *
+ * @param {Object} props
+ * @param {'solid' | 'outline' | 'ghost'} [props.variant='solid']
+ * @param {'small' | 'medium' | 'large'} [props.size='medium']
+ * @param {'button' | 'submit' | 'reset'} [props.type='button']
+ * @param {(event: React.MouseEvent<HTMLButtonElement>) => unknown} [props.onClick] Return a
+ * promise to show loading, success and error states.
+ * @param {number} [props.statusDuration=1500] Milliseconds the success or error state stays.
+ * @param {string} [props.loadingLabel='Loading'] Screen reader text while loading.
+ * @param {string} [props.successLabel='Success'] Screen reader text on success.
+ * @param {string} [props.errorLabel='Error'] Screen reader text on error.
+ * @param {string} [props.className]
+ * @param {React.ReactNode} [props.children]
+ * @param {Object} [props.rest] Any other prop is passed to the native `<button>`.
+ * @returns {React.JSX.Element}
+ *
+ * @example
+ * ```jsx
+ * <Button variant='outline' size='large' onClick={saveProfile}>Save</Button>
+ * ```
+ */
 export default function Button({
-    variant = 'solid', // solid || outline || ghost
-    size = 'medium', // small || medium || large
+    variant = 'solid',
+    size = 'medium',
     type = 'button',
-    onClick, // (event) => void | Promise. Return a promise to get loading, success and error states
-    statusDuration = 1500, // ms the success or error state stays after the promise settles
-    loadingLabel = STATUS_LABELS.loading, // read by screen readers, '' to omit
+    onClick,
+    statusDuration = 1500,
+    loadingLabel = STATUS_LABELS.loading,
     successLabel = STATUS_LABELS.success,
     errorLabel = STATUS_LABELS.error,
     className,

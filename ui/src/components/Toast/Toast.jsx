@@ -21,20 +21,49 @@ const ICON_MAP = {
     info: <InfoOutlineIcon />,
 }
 
+/**
+ * A short message that closes by itself. Renders nothing after it is closed.
+ *
+ * @param {Object} props
+ * @param {'topCenter' | 'topLeft' | 'topRight' | 'bottomCenter' | 'bottomLeft' | 'bottomRight'} [props.position='topCenter']
+ * @param {'default' | 'success' | 'warning' | 'error' | 'info'} [props.type]
+ * @param {string} [props.statusLabel] Screen reader text before the title. Defaults to a word for
+ * the type. Pass `''` to leave it out.
+ * @param {React.ReactNode} [props.title]
+ * @param {React.ElementType} [props.titleAs='p'] Element or component used for the title.
+ * @param {React.ReactNode} [props.message]
+ * @param {{label: string, onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void, disabled?: boolean}} [props.action]
+ * A button for a follow-up, such as "Undo".
+ * @param {number} [props.duration=4000] Milliseconds before it closes. Kept between 1000 and 20000.
+ * @param {boolean} [props.pauseOnHover=true] Hover or focus pauses the countdown.
+ * @param {boolean} [props.showProgress=false] Shows a countdown bar.
+ * @param {boolean} [props.closeButton=false] Shows a close button.
+ * @param {string} [props.closeLabel='Close'] Accessible name of the close button.
+ * @param {boolean} [props.open=true] Set to `false` to close it from code.
+ * @param {() => void} [props.onClose] Called after the toast has closed.
+ * @param {string} [props.className]
+ * @param {Object} [props.rest] Any other prop is passed to the root `<div>`.
+ * @returns {React.JSX.Element | null}
+ *
+ * @example
+ * ```jsx
+ * <Toast type='success' title='Saved' message='Your changes are live.' closeButton />
+ * ```
+ */
 export default function Toast({
-    position = 'topCenter', // topCenter || topLeft || topRight || bottomCenter || bottomLeft || bottomRight
-    type, // default || success || warning || error || info
-    statusLabel = STATUS_LABELS[type], // read by screen readers before the title, '' to omit
+    position = 'topCenter',
+    type,
+    statusLabel = STATUS_LABELS[type],
     title,
     titleAs: TitleTag = 'p',
     message,
-    action, // { label: string, onClick?: (event) => void }
+    action,
     duration = 4000,
-    pauseOnHover = true, // hover or keyboard focus pauses the countdown (WCAG 2.2.1)
+    pauseOnHover = true,
     showProgress,
     closeButton,
     closeLabel = 'Close',
-    open = true, // false closes it with the exit animation (used by ToastProvider)
+    open = true,
     onClose,
     className,
     ...rest
@@ -78,6 +107,7 @@ export default function Toast({
     }
 
     return isMounted ? (
+        // biome-ignore lint/a11y/noStaticElementInteractions: a live region, not a control. Its handlers only catch Escape and focus bubbling up from the buttons inside it, and pause the timer on hover.
         <div
             role={role}
             {...rest}

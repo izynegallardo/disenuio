@@ -1,16 +1,6 @@
-import { Testimonial } from 'disenuio'
-import model from '../../../assets/model.jpg'
 import { quote } from '../../../utils/buildCode'
-
-function portraitAlt(name) {
-    return name ? `Portrait of ${name}` : 'Portrait'
-}
-
-function TestimonialPreview({ props, values }) {
-    const image = values.showImage ? <img src={model} alt={portraitAlt(values.name)} /> : undefined
-
-    return <Testimonial {...props} image={image} />
-}
+import { portraitAlt } from '../../../utils/portraitAlt'
+import TestimonialPreview from '../previews/TestimonialPreview'
 
 export default {
     name: 'Testimonial',

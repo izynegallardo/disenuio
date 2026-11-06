@@ -7,10 +7,32 @@ function toOption(option) {
     return typeof option === 'object' && option !== null ? option : { value: option, label: option }
 }
 
+/**
+ * A row of mutually exclusive options, built as a radio group. Arrow keys move between options.
+ *
+ * @param {Object} props
+ * @param {Array<string | number | {value: string | number, label: React.ReactNode}>} props.options
+ * Plain values or `{ value, label }`.
+ * @param {string | number | null} [props.value] The chosen option. The component is controlled, so
+ * update it from `onChange`.
+ * @param {(value: string | number) => void} [props.onChange]
+ * @param {boolean} [props.disabled=false]
+ * @param {string} [props.label] Accessible name of the group.
+ * @param {string} [props.className]
+ * @param {Object} [props.rest] Any other prop is passed to the root `<div>`.
+ * @returns {React.JSX.Element}
+ *
+ * @example
+ * ```jsx
+ * const [view, setView] = React.useState('list')
+ *
+ * <Segmented label='View' options={['list', 'grid']} value={view} onChange={setView} />
+ * ```
+ */
 export default function Segmented({
     value,
     options,
-    onChange, // (value) => void
+    onChange,
     disabled = false,
     label,
     className,

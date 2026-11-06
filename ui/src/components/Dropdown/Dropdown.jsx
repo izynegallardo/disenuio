@@ -14,24 +14,55 @@ function toOption(option) {
         : { value: option, label: String(option) }
 }
 
+// Built as a "select-only combobox" (WAI-ARIA): the button keeps focus the whole time and
+// points at the highlighted option with aria-activedescendant.
+//
+// Keys: ArrowDown, ArrowUp, Enter and Space open it. When open: arrows, Home and End move,
+// Enter and Space choose, Escape closes, Tab closes, and typing jumps to a matching option.
+
 /**
- * A select built as a "select-only combobox" (WAI-ARIA): the button keeps focus the whole
- * time and points at the highlighted option with aria-activedescendant.
+ * A select with keyboard support and type-to-search.
  *
- * Keys: ArrowDown, ArrowUp, Enter and Space open it. When open: arrows, Home and End move,
- * Enter and Space choose, Escape closes, Tab closes, and typing jumps to a matching option.
+ * @param {Object} props
+ * @param {Array<string | number | {value: string | number, label: React.ReactNode}>} props.options
+ * Plain values or `{ value, label }`.
+ * @param {string | number | null} [props.value] Controlled value. Use `defaultValue` to leave it
+ * uncontrolled. `null` means nothing is chosen.
+ * @param {string | number | null} [props.defaultValue=null]
+ * @param {(value: string | number) => void} [props.onChange] Called only when the choice changes.
+ * @param {string} [props.placeholder='Select an option'] Shown while nothing is chosen.
+ * @param {string} [props.name] Renders a hidden input, so the value is part of a form submit.
+ * @param {boolean} [props.disabled=false]
+ * @param {string} [props.label] Accessible name. Or pass `aria-labelledby`.
+ * @param {string} [props.className]
+ * @param {Object} [props.rest] Any other prop (`id`, `aria-invalid`...) is passed to the trigger
+ * `<button>`.
+ * @returns {React.JSX.Element}
+ *
+ * @example
+ * ```jsx
+ * <Dropdown
+ *     label='Country'
+ *     placeholder='Choose a country'
+ *     options={[
+ *         { value: 'ph', label: 'Philippines' },
+ *         { value: 'jp', label: 'Japan' },
+ *     ]}
+ *     onChange={(value) => setCountry(value)}
+ * />
+ * ```
  */
 export default function Dropdown({
     options,
-    value, // controlled. Use defaultValue to leave it uncontrolled. null means nothing is chosen
+    value,
     defaultValue = null,
-    onChange, // (value) => void, only when the choice actually changes
+    onChange,
     placeholder = 'Select an option',
-    name, // renders a hidden input so the value is part of a form submit
+    name,
     disabled = false,
-    label, // accessible name, or use aria-labelledby
+    label,
     className,
-    ...rest // go to the button: id, aria-labelledby, aria-invalid...
+    ...rest
 }) {
     const baseId = React.useId()
     const listId = `${baseId}-list`

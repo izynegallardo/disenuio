@@ -11,8 +11,9 @@ import toast from './toast'
 import toggle from './toggle'
 import tooltip from './tooltip'
 
-// One config per component. To add a component to the playground, write its config
-// (see button.jsx for a full one) and list it here.
+// One config per component. To add a component to the playground, write its Preview in
+// ../previews, write its config (see button.js for a full one) and list it here. Configs are
+// plain objects with no JSX, which keeps component files exporting only components.
 //
 //   name       the export name from 'disenuio', also used in the printed import
 //   controls   the rows of the panel, see utils/controlValues.js
